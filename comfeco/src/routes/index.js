@@ -3,7 +3,8 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home'
 import Login from '../views/Login'
 import SignUp from '../views/SignUp'
-
+import Vuelidate from 'vuelidate'
+Vue.use(Vuelidate)
 Vue.use(VueRouter)
 
 const routes = [
