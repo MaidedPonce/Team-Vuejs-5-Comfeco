@@ -18,9 +18,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-    .auth-bg {
-        background-image: url('./assets/auth.jpg');
-    }
-</style>
