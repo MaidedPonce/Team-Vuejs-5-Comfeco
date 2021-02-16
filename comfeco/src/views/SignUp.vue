@@ -78,8 +78,8 @@ import { required, sameAs, minLength, email } from 'vuelidate/lib/validators'
             signUp(){
                 firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
                     .then((user) => {
-                            alert('Usuario creado satisfactoriamente')
-                         })
+                        this.$router.replace('/dashboard')
+                        })
                             .catch((error) => {
                                 var errorCode = error.code;
                                 var errorMessage = error.message;
