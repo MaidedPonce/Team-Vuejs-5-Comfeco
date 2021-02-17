@@ -1,14 +1,18 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Vuelidate from 'vuelidate'
+
+import { auth } from '../config/firebase'
+
 import Home from '../views/Home'
-import Login from '../views/Login'
-import SignUp from '../views/SignUp'
+import Login from '../views/auth/Login'
+import SignUp from '../views/auth/SignUp'
 import Forgot from '../views/auth/Forgot'
 import Private from '../views/Private'
 // import Dashboard from '../views/Dashboard'
-import Vuelidate from 'vuelidate'
-import firebase from 'firebase/app'
-import 'firebase/auth'
+
+
+
 Vue.use(Vuelidate)
 Vue.use(VueRouter)
 
@@ -48,11 +52,12 @@ const routes = [
 ]
 
 const router = new VueRouter({
+  mode: 'history',
   routes
 })
 
 router.beforeEach((to, from, next) => {
-  const currentUser = firebase.auth().currentUser
+  const currentUser = auth.currentUser
   const requirestAuth = to.matched.some((record) => record.meta.requiresAuth)
   if (requirestAuth && !currentUser) {
     next('login')
