@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home'
 import Login from '../views/Login'
 import SignUp from '../views/SignUp'
+import Forgot from '../views/auth/Forgot'
 import Private from '../views/Private'
 // import Dashboard from '../views/Dashboard'
 import Vuelidate from 'vuelidate'
@@ -27,9 +28,14 @@ const routes = [
     component: Login
   },
   {
-    path: '/signUp',
+    path: '/register',
     name: 'SignUp',
     component: SignUp
+  },
+  {
+    path: '/forgot-password',
+    name: 'ForgotPassword',
+    component: Forgot
   },
   {
     path: '/dashboard',
@@ -56,4 +62,5 @@ router.beforeEach((to, from, next) => {
     next()
   }
 })
+
 export default router
