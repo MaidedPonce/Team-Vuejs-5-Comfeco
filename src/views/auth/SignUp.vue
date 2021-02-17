@@ -37,6 +37,10 @@
             <span v-if="!$v.email.required" class="text-xs text-red-400"
               >The email is required</span
             >
+
+            <span v-if="!$v.email.email" class="text-xs text-red-400"
+              >The email is incorrect</span
+            >
           </div>
         </div>
         <div class="my-3">
@@ -81,9 +85,9 @@
           @click="showModal = true"
           value="Terminos y condiciones"
           class="w-full bg-yellow-600 hover:bg-yellow-400 text-white font-semibold mt-2 py-3"
-        /> 
+        />
 
-        <Modal v-if="showModal" @close="showModal = false" @aceptar="aceptar"/>
+        <Modal v-if="showModal" @close="showModal = false" @aceptar="aceptar" />
 
         <button
           class="w-full bg-yellow-600 hover:bg-yellow-400 text-white font-semibold mt-2 py-3"
@@ -114,7 +118,7 @@
 <script>
 import { required, sameAs, minLength, email } from "vuelidate/lib/validators";
 import { auth } from "./../../config/firebase";
-import Modal from "./../../components/ModalTermCond"
+import Modal from "./../../components/ModalTermCond";
 
 export default {
   name: "SignUp",
@@ -126,7 +130,7 @@ export default {
       confirm: "",
       terminosCondiciones: false,
       submitStatus: null,
-      showModal: false
+      showModal: false,
     };
   },
   validations: {
@@ -137,15 +141,6 @@ export default {
     email: {
       required,
       email,
-      isUnique(value) {
-        if (value === "") return true;
-        var email_regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-        return new Promise((resolve) => {
-          setTimeout(() => {
-            resolve(email_regex.test(value));
-          }, 350 + Math.random() * 300);
-        });
-      },
     },
     password: {
       required,
@@ -160,19 +155,21 @@ export default {
     signUp() {
       this.$v.$touch();
 
-      if (this.$v.$invalid || !this.terminosCondiciones) {
-        alert("fill in the fields");
-      } else {
-
-        this.submitStatus = 'PENDING'
+      if (this.$v.$invalid) {
+        alert("Rellena todos los campos");
+      } else if(!this.terminosCondiciones){
+        alert("Acepta los terminos y condiciones");
+      }else{
+        this.submitStatus = "PENDING";
 
         auth
           .createUserWithEmailAndPassword(this.email, this.password)
           .then((user) => {
-            this.submitStatus = 'OK'
+            this.submitStatus = "OK";
             this.$router.replace("/dashboard");
           })
           .catch((error) => {
+            this.submitStatus = null;
             var errorCode = error.code;
             var errorMessage = error.message;
             alert(errorMessage);
@@ -180,15 +177,15 @@ export default {
       }
     },
 
-    aceptar(){
+    aceptar() {
       this.terminosCondiciones = true;
       this.showModal = false;
-    }
+    },
   },
 
   components: {
-    Modal
-  }
+    Modal,
+  },
 };
 </script>
 

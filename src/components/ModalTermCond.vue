@@ -3,8 +3,6 @@
     <div class="modal-mask">
       <div class="modal-wrapper">
         <div class="modal-container">
-
-
           <div class="text-sm text-gray-600 text-center mt-6">
             <p>
               Al registrarte estas aceptando los
@@ -19,18 +17,20 @@
             </p>
           </div>
 
-          <div class="modal-footer">
-              <input
-                type="button"
-                value="Cerrar"
-                @click="$emit('close')"
-              />
+          <div class="grid grid-cols-2 gap-2 md:gap-8">
+            <input
+              class="text-white bg-facebook py-2"
+              type="button"
+              value="Cerrar"
+              @click="$emit('close')"
+            />
 
-              <input
-                type="button"
-                value="Aceptar"
-                @click="$emit('aceptar')"
-              />
+            <input
+              class="text-white bg-facebook py-2"
+              type="button"
+              value="Aceptar"
+              @click="$emit('aceptar')"
+            />
           </div>
         </div>
       </div>
@@ -47,15 +47,9 @@ export default {
 
   data() {
     return {
-        aceptar: false
+      aceptar: false,
     };
   },
-
-  methods:{
-      verificar(){
-
-      }
-  }
 };
 </script>
 
