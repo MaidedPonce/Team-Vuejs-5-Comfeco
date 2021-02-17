@@ -1,5 +1,5 @@
 <template>
-    <div class="flex-grow bg-purple-500">
+    <div class="flex-grow bg-purple-400">
         <div class="bg-white w-11/12 md:w-3/5 lg:w-2/6 mx-auto my-10 px-6 md:px-10 py-10">
             <div class="text-center mb-10">
                 <h2 class="text-4xl font-bold">Login</h2>
