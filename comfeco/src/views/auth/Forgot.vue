@@ -16,12 +16,15 @@
             class="w-full text-gray-700 border border-red-500 focus:outline-none focus:border-pink-700 px-4 py-2 rounded-md"
             placeholder="example@mail.com"
           />
-          <span v-if="!$v.email.email" class="text-xs text-red-400"
+          <div v-if="$v.$error">
+            <span v-if="!$v.email.email" class="text-xs text-red-400"
             >The email is incorrect</span
           >
           <span v-if="!$v.email.required" class="text-xs text-red-400"
             >The email is required</span
           >
+          </div>
+          
         </div>
         <button
           class="w-full bg-yellow-600 hover:bg-yellow-400 text-white font-semibold mt-2 py-3"
