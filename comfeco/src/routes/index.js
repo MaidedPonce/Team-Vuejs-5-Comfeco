@@ -3,16 +3,12 @@ import VueRouter from 'vue-router'
 import Vuelidate from 'vuelidate'
 
 import { auth } from '../config/firebase'
-
-import Home from '../views/Home'
+import Home from '../components/Home'
 import Login from '../views/auth/Login'
 import SignUp from '../views/auth/SignUp'
 import Forgot from '../views/auth/Forgot'
-import Private from '../views/Private'
+import Private from '../views/auth/Private'
 // import Dashboard from '../views/Dashboard'
-
-
-
 Vue.use(Vuelidate)
 Vue.use(VueRouter)
 

@@ -1,8 +1,10 @@
 <template>
   <div class="flex-grow bg-purple-400">
+    <div>
+        <router-link to="/register" class="bg-purple-400 block max-w-min text-sm px-4 py-2 leading-none border rounded text-white border-purple-800 mt-4 md:mt-0 md:inline-block md:mx-1 lg:mt-0">Register</router-link>
+    </div>
     <div
-      class="bg-white w-11/12 md:w-3/5 lg:w-2/6 mx-auto my-10 px-6 md:px-10 py-10"
-    >
+      class="bg-white w-11/12 md:w-3/5 lg:w-2/6 mx-auto my-10 px-6 md:px-10 py-10">
       <div class="text-center mb-10">
         <h2 class="text-4xl font-bold">Login</h2>
         <p class="text-3md mt-2">Login into your page account</p>

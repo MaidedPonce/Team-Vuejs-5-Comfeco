@@ -4,7 +4,7 @@
       <router-link to="/">
         <img
           class="w-32 h-auto md:w-48"
-          src="../assets/logo.png"
+          src='../../assets/logo.png'
           alt="Comfeco"
         />
       </router-link>
@@ -26,16 +26,13 @@
           Blog
         </a>
       </div>
-      <div>
-        <router-link to="/login" class="bg-pink-400 block max-w-min text-sm px-4 py-2 leading-none border rounded text-white border-pink-800 mt-4 md:mt-0 md:inline-block md:mx-1 lg:mt-0">Login</router-link>
-        <router-link to="/register" class="bg-purple-400 block max-w-min text-sm px-4 py-2 leading-none border rounded text-white border-purple-800 mt-4 md:mt-0 md:inline-block md:mx-1 lg:mt-0">Register</router-link>
-        <router-link to="/login" class="bg-red-400 block max-w-min text-sm px-4 py-2 leading-none border rounded text-white border-red-800 mt-4 md:mt-0 md:inline-block md:mx-1 lg:mt-0">Logout</router-link>
-      </div>
     </div>
   </nav>
 </template>
 
 <script>
+import firebase from 'firebase/app'
+import 'firebase/auth'
 export default {
   name: 'Header',
   data() {
@@ -46,7 +43,7 @@ export default {
   methods: {
     openMenu: function() {
       this.responsiveMenu = !this.responsiveMenu;
-    }
+    },
   }
 }
 </script>
