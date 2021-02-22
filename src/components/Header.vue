@@ -27,23 +27,22 @@
         </a>
       </div>
       <div v-if="isLoggedIn" class="relative">
-        <div>
-          
-        </div>
-        <figure @click="toggleDropdown" class="flex items-center cursor-pointer">
-          <div class="relative hidden md:block">
-            <img class="text-pink-500 w-7 mr-4" src="../assets/bell.svg" alt="Notifications" />
-            <span class="text-xs text-white font-semibold px-1.5 py-0.5 bg-red-500 rounded-full absolute -top-1 right-3">6</span>
+        <div class="flex items-center">
+          <div class="relative hidden md:block cursor-pointer mr-4">
+            <img class="text-pink-500 w-7" src="../assets/bell.svg" alt="Notifications" />
+            <span class="text-xs text-white font-semibold px-1.5 py-0.5 bg-red-500 rounded-full absolute -top-1 -right-1">6</span>
           </div>
-          <h3 class="text-gray-600 font-medium mr-2 hidden md:block">Homero Simpson</h3>
-          <img class="w-12 rounded-full hidden md:block" src="../assets/avatar.jpg" alt="Homero Simpson" />
-        </figure>
+          <div @click="toggleDropdown" class="flex items-center cursor-pointer">
+            <h3 class="text-gray-600 font-medium mr-2 hidden md:block">Homero Simpson</h3>
+            <img class="w-12 rounded-full hidden md:block" src="../assets/avatar.jpg" alt="Homero Simpson" />
+          </div>
+        </div>
         <div class="bg-white md:w-40 md:absolute md:right-0 mt-3 md:shadow-md md:rounded-md border-t border-gray-400 md:border-none" :class="{ 'md:hidden': !responsiveDropdown }">
           <h3 href="#" class="text-sm block font-semibold md:px-2 py-2 md:hidden">Homero Simpson</h3>
-          <div class="flex justify-between items-center md:hidden">
-            <a href="#" class="text-sm text-pink-600 font-semibold block md:px-2 py-2">Notifications</a>
+          <a href="#" class="w-full flex justify-between items-center md:hidden">
+            <p class="text-sm text-pink-600 font-semibold block md:px-2 py-2">Notifications</p>
             <span class="text-white bg-purple-500 px-2 rounded-md align-middle items-center">6</span>
-          </div>
+          </a>
           <a href="#" class="text-sm block md:px-2 py-2 hover:text-gray-600">Profile</a>
           <a href="#" class="text-sm block md:px-2 py-2 hover:text-gray-600">Account Settings</a>
           <a href="#" class="text-sm block md:px-2 py-2 hover:text-gray-600">Support</a>
