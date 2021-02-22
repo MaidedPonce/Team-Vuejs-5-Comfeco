@@ -4,7 +4,7 @@
           <img class="item__img" src="../assets/User.png" alt="user">
             <div class="item__name">
             <img src="" alt="" srcset="">
-            <p>Nombre</p> 
+            <p>Name</p> 
             </div>
       </div>
   </div>
