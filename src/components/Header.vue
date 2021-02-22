@@ -15,14 +15,14 @@
       </button>
     </div>
     <div class="w-full flex-grow md:flex md:items-center md:w-auto" :class="{'hidden' : !responsiveMenu}">
-      <div class="text-sm md:flex-grow">
-        <router-link to="/" class="block mt-4 md:inline-block md:mt-0 text-gray-800 hover:text-gray-700 mr-4">
+      <div class="text-sm md:flex-grow mt-2 md:m-0">
+        <router-link to="/" class="block py-2 md:inline-block md:mt-0 text-gray-800 hover:text-gray-700 mr-4">
           Home
         </router-link>
-        <a href="#responsive-header" class="block mt-4 md:inline-block md:mt-0 text-gray-800 hover:text-gray-700 mr-4">
+        <a href="#responsive-header" class="block py-2 md:inline-block md:mt-0 text-gray-800 hover:text-gray-700 mr-4">
           About Us
         </a>
-        <a href="#responsive-header" class="block mt-4 md:inline-block md:mt-0 text-gray-800 hover:text-gray-700">
+        <a href="#responsive-header" class="block py-2 md:inline-block md:mt-0 text-gray-800 hover:text-gray-700">
           Blog
         </a>
       </div>
