@@ -10,7 +10,7 @@
         <p class="text-3md mt-2">Login into your page account</p>
       </div>
 
-      <div class="w-full bg-yellow-600" v-if="loginError"><p>email or pasword incorrect</p></div>
+      <div class="w-full bg-yellow-600" v-if="loginError"><p>Email or pasword incorrect</p></div>
       <form @submit.prevent="login">
         <div class="my-3">
           <label for="" class="block text-gray-600 my-1">Email Address</label>
@@ -20,7 +20,7 @@
             class="w-full text-gray-700 border border-green-500 focus:outline-none focus:border-pink-700 px-4 py-2 rounded-md"
             placeholder="example@mail.com"
           />
-          <div>
+          <div v-if="$v.$error">
             <span v-if="!$v.email.email" class="text-xs text-red-400"
               >The email is incorrect</span
             >
@@ -37,7 +37,7 @@
             class="w-full text-gray-700 border border-red-500 focus:outline-none focus:border-pink-700 px-4 py-2 rounded-md"
             placeholder="**************"
           />
-          <div>
+          <div v-if="$v.$error">
             <span v-if="!$v.password.required" class="text-xs text-red-400"
               >The password is required</span
             >
@@ -91,7 +91,7 @@ export default {
   name: "Login",
   data() {
     return {
-      email: "",
+      email: '',
       password: "",
       submitStatus: null,
       loginError: false,
@@ -126,7 +126,7 @@ export default {
             this.loginError = true;
           });
       }
-    },
+    }
   },
 };
 </script>

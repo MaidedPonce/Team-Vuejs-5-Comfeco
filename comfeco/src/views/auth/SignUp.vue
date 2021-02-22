@@ -19,7 +19,8 @@
             class="w-full text-gray-700 border border-green-500 focus:outline-none focus:border-pink-700 px-4 py-2 rounded-md"
             placeholder="Nickname"
           />
-          <div>
+          <div v-if="$v.$error">
+            
             <span v-if="!$v.nick.required" class="text-xs text-red-400"
               >The nickname is required</span
             >
@@ -35,7 +36,7 @@
             class="w-full text-gray-700 border border-red-500 focus:outline-none focus:border-pink-700 px-4 py-2 rounded-md"
             placeholder="example@mail.com"
           />
-          <div>
+          <div v-if="$v.$error">
             <span v-if="!$v.email.required" class="text-xs text-red-400"
               >The email is required</span
             >
@@ -54,7 +55,7 @@
             class="w-full text-gray-700 border border-gray-500 focus:outline-none focus:border-pink-700 px-4 py-2 rounded-md"
             placeholder="**************"
           />
-          <div>
+          <div v-if="$v.$error">
             <span v-if="!$v.password.required" class="text-xs text-red-400"
               >The passsword is required</span
             >
@@ -75,7 +76,7 @@
             class="w-full text-gray-700 border border-gray-500 focus:outline-none focus:border-pink-700 px-4 py-2 rounded-md"
             placeholder="**************"
           />
-          <div>
+          <div v-if="$v.$error">
             <span v-if="!$v.confirm.sameAsPassword" class="text-xs text-red-400"
               >Passwords must be identical.</span
             >
