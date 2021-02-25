@@ -17,14 +17,19 @@
           <input
             v-model.trim="$v.email.$model"
             type="text"
-            class="w-full text-gray-700 border border-green-500 focus:outline-none focus:border-pink-700 px-4 py-2 rounded-md"
+            class="w-full text-gray-700 border border-pink-500 focus:outline-none focus:border-pink-700 px-4 py-2 rounded-md"
             placeholder="example@mail.com"
           />
+<<<<<<< HEAD:comfeco/src/views/auth/Login.vue
           <div v-if="$v.$error">
             <span v-if="!$v.email.email" class="text-xs text-red-400"
+=======
+          <div>
+            <span v-if="!$v.email.email" class="text-xs text-purple-400"
+>>>>>>> carousel:src/views/auth/Login.vue
               >The email is incorrect</span
             >
-            <span v-if="!$v.email.required" class="text-xs text-red-400"
+            <span v-if="!$v.email.required" class="text-xs text-purple-400"
               >The email is required</span
             >
           </div>
@@ -34,11 +39,16 @@
           <input
             v-model.trim="$v.password.$model"
             type="password"
-            class="w-full text-gray-700 border border-red-500 focus:outline-none focus:border-pink-700 px-4 py-2 rounded-md"
+            class="w-full text-gray-700 border border-pink-500 focus:outline-none focus:border-pink-700 px-4 py-2 rounded-md"
             placeholder="**************"
           />
+<<<<<<< HEAD:comfeco/src/views/auth/Login.vue
           <div v-if="$v.$error">
             <span v-if="!$v.password.required" class="text-xs text-red-400"
+=======
+          <div>
+            <span v-if="!$v.password.required" class="text-xs text-purple-400"
+>>>>>>> carousel:src/views/auth/Login.vue
               >The password is required</span
             >
           </div>

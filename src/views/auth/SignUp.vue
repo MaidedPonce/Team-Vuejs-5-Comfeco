@@ -16,13 +16,21 @@
             name="nick"
             type="text"
             v-model.trim="$v.nick.$model"
-            class="w-full text-gray-700 border border-green-500 focus:outline-none focus:border-pink-700 px-4 py-2 rounded-md"
+            class="w-full text-gray-700 border border-pink-500 focus:outline-none focus:border-pink-700 px-4 py-2 rounded-md"
             placeholder="Nickname"
           />
+<<<<<<< HEAD:comfeco/src/views/auth/SignUp.vue
           <div v-if="$v.$error">
             
             <span v-if="!$v.nick.required" class="text-xs text-red-400"
+=======
+          <div>
+            <span v-if="!$v.nick.required" class="text-xs text-purple-400"
+>>>>>>> carousel:src/views/auth/SignUp.vue
               >The nickname is required</span
+            >
+            <span v-if="!$v.nick.minLength" class="text-xs text-purple-400"
+              >Nickname must have at least 4 letters.</span
             >
           </div>
         </div>
@@ -33,15 +41,20 @@
             name="email"
             type="text"
             v-model.trim="$v.email.$model"
-            class="w-full text-gray-700 border border-red-500 focus:outline-none focus:border-pink-700 px-4 py-2 rounded-md"
+            class="w-full text-gray-700 border border-pink-500 focus:outline-none focus:border-pink-700 px-4 py-2 rounded-md"
             placeholder="example@mail.com"
           />
+<<<<<<< HEAD:comfeco/src/views/auth/SignUp.vue
           <div v-if="$v.$error">
             <span v-if="!$v.email.required" class="text-xs text-red-400"
+=======
+          <div>
+            <span v-if="!$v.email.required" class="text-xs text-purple-400"
+>>>>>>> carousel:src/views/auth/SignUp.vue
               >The email is required</span
             >
 
-            <span v-if="!$v.email.email" class="text-xs text-red-400"
+            <span v-if="!$v.email.email" class="text-xs text-purple-400"
               >The email is incorrect</span
             >
           </div>
@@ -52,14 +65,19 @@
             name="password"
             type="password"
             v-model.trim="$v.password.$model"
-            class="w-full text-gray-700 border border-gray-500 focus:outline-none focus:border-pink-700 px-4 py-2 rounded-md"
+            class="w-full text-gray-700 border border-pink-500 focus:outline-none focus:border-pink-700 px-4 py-2 rounded-md"
             placeholder="**************"
           />
+<<<<<<< HEAD:comfeco/src/views/auth/SignUp.vue
           <div v-if="$v.$error">
             <span v-if="!$v.password.required" class="text-xs text-red-400"
+=======
+          <div>
+            <span v-if="!$v.password.required" class="text-xs text-purple-400"
+>>>>>>> carousel:src/views/auth/SignUp.vue
               >The passsword is required</span
             >
-            <span v-if="!$v.password.minLength" class="text-xs text-red-400"
+            <span v-if="!$v.password.minLength" class="text-xs text-purple-400"
               >Password must have at least
               {{ $v.password.$params.minLength.min }} letters.</span
             >
@@ -73,11 +91,16 @@
             name="confirm"
             type="password"
             v-model.trim="$v.confirm.$model"
-            class="w-full text-gray-700 border border-gray-500 focus:outline-none focus:border-pink-700 px-4 py-2 rounded-md"
+            class="w-full text-gray-700 border border-pink-500 focus:outline-none focus:border-pink-700 px-4 py-2 rounded-md"
             placeholder="**************"
           />
+<<<<<<< HEAD:comfeco/src/views/auth/SignUp.vue
           <div v-if="$v.$error">
             <span v-if="!$v.confirm.sameAsPassword" class="text-xs text-red-400"
+=======
+          <div>
+            <span v-if="!$v.confirm.sameAsPassword" class="text-xs text -purple-400"
+>>>>>>> carousel:src/views/auth/SignUp.vue
               >Passwords must be identical.</span
             >
           </div>
