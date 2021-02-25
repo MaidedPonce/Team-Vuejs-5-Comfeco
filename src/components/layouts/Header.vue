@@ -4,7 +4,7 @@
       <router-link to="/">
         <img
           class="w-32 h-auto md:w-48"
-          src='../../assets/logo.png'
+          src='../../assets/images/logo.png'
           alt="Comfeco"
         />
       </router-link>

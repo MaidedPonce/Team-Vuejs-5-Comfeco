@@ -10,21 +10,21 @@
         <p class="text-3md mt-2">Login into your page account</p>
       </div>
 
-      <div class="w-full bg-yellow-600" v-if="loginError"><p>email or pasword incorrect</p></div>
+      <div class="w-full bg-yellow-600" v-if="loginError"><p>Email or pasword incorrect</p></div>
       <form @submit.prevent="login">
         <div class="my-3">
           <label for="" class="block text-gray-600 my-1">Email Address</label>
           <input
             v-model.trim="$v.email.$model"
             type="text"
-            class="w-full text-gray-700 border border-green-500 focus:outline-none focus:border-pink-700 px-4 py-2 rounded-md"
+            class="w-full text-gray-700 border border-pink-500 focus:outline-none focus:border-pink-700 px-4 py-2 rounded-md"
             placeholder="example@mail.com"
           />
           <div>
-            <span v-if="!$v.email.email" class="text-xs text-red-400"
+            <span v-if="!$v.email.email" class="text-xs text-purple-400"
               >The email is incorrect</span
             >
-            <span v-if="!$v.email.required" class="text-xs text-red-400"
+            <span v-if="!$v.email.required" class="text-xs text-purple-400"
               >The email is required</span
             >
           </div>
@@ -34,11 +34,11 @@
           <input
             v-model.trim="$v.password.$model"
             type="password"
-            class="w-full text-gray-700 border border-red-500 focus:outline-none focus:border-pink-700 px-4 py-2 rounded-md"
+            class="w-full text-gray-700 border border-pink-500 focus:outline-none focus:border-pink-700 px-4 py-2 rounded-md"
             placeholder="**************"
           />
           <div>
-            <span v-if="!$v.password.required" class="text-xs text-red-400"
+            <span v-if="!$v.password.required" class="text-xs text-purple-400"
               >The password is required</span
             >
           </div>
