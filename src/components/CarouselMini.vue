@@ -1,7 +1,7 @@
 <template>
   <section style="padding-bottom: 100%;">
-<div class="prev"></div>
   <div class="carouselMini">
+      <div class="prev"></div>
     <ul>
       <li class="itemMini">
           <img class="itemMini__img" src="../assets/images/huawei.jpg" alt="organization">
@@ -16,28 +16,22 @@
           <img class="itemMini__img" src="../assets/images/domini.jpg" alt="organization">
       </li>
       <li class="itemMini">
-          <img class="itemMini__img" src="../assets/images/User.png" alt="organization">
-      </li>
-      <li class="itemMini">
           <img class="itemMini__img" src="../assets/images/codigofacilito.png" alt="organization">
       </li>
       <li class="itemMini">
           <img class="itemMini__img" src="../assets/images/codelytv.png" alt="organization">
       </li>
       <li class="itemMini">
-          <img class="itemMini__img" src="../assets/images/User.png" alt="organization">
+          <img class="itemMini__img" src="../assets/images/egghead.png" alt="organization">
       </li>
       <li class="itemMini">
-          <img class="itemMini__img" src="../assets/images/User.png" alt="organization">
+          <img class="itemMini__img" src="../assets/images/joselujan.jpg" alt="organization">
       </li>
       <li class="itemMini">
-          <img class="itemMini__img" src="../assets/images/User.png" alt="organization">
+          <img class="itemMini__img" src="../assets/images/latamdev.jpg" alt="organization">
       </li>
       <li class="itemMini">
-          <img class="itemMini__img" src="../assets/images/User.png" alt="organization">
-      </li>
-      <li class="itemMini">
-          <img class="itemMini__img" src="../assets/images/User.png" alt="organization">
+          <img class="itemMini__img" src="../assets/images/leonidasesteban.jpg" alt="organization">
       </li>
     </ul> 
     <div class="next"></div>
@@ -91,14 +85,13 @@ name: 'CarouselMini'
     line-height: 40px;
     text-align: center;
     cursor: pointer;
-    background: blue;
+    background: rgba(196, 43, 235, 0.609);
     color: black;
     transition: all 0.7s;
     font-size: 20px;
     font-weight: bold;
     z-index: 100;
-    right: 570px;
-    margin-top: 20px;
+    left: 420px;
 }
 
 .next {
@@ -109,28 +102,25 @@ name: 'CarouselMini'
     line-height: 40px;
     text-align: center;
     cursor: pointer;
-    background: blue;
+    background: rgba(196, 43, 235, 0.609);
     color: black;
     transition: all 0.7s;
     font-size: 20px;
     font-weight: bold;
     z-index: 100;
-    left: 570px;
+    right: 420px;
 }
 
 
 .next:hover,
 .prev:hover{
     opacity: 1;
-    background-color: black;
+    background-color: rgba(88, 86, 86, 0.596);
 }
 .prev::before{
     content: '<';
 }
 
-.next {
-    right: -70px;
-}
 .next::before {
     content: '>';
 }

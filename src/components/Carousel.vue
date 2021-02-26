@@ -102,7 +102,7 @@ export default {
 }
 
 .item__name {
-    background-color: rgb(51, 49, 49);
+    background-color: rgba(0, 0, 0, 0.514);
     bottom: 30px;
     height: 25%;
     position: relative;

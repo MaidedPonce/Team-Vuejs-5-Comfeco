@@ -11,11 +11,12 @@ import firebase from 'firebase/app'
 import 'firebase/auth'
 import Carousel from '../../components/Carousel'
 import CarouselMini from '../../components/CarouselMini'
+
 export default {
     name: 'Private',
 	components: {
 		Carousel,
-		CarouselMini
+		CarouselMini,
 	},
     methods: {
 		logout() {
