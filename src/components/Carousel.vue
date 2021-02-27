@@ -71,7 +71,6 @@ export default {
     .carousel {
     align-items: center;
     display: flex;
-    flex-direction: center;
     height: 200px;
     justify-content: center;
     margin: auto;
