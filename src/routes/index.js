@@ -1,15 +1,15 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Vuelidate from 'vuelidate'
 
 import { auth } from '../config/firebase'
 import Home from '../components/Home'
 import Login from '../views/auth/Login'
 import SignUp from '../views/auth/SignUp'
 import Forgot from '../views/auth/Forgot'
+import Terms from '../views/Terms'
+import Politics from '../views/Politics'
 import Private from '../views/auth/Private'
-// import Dashboard from '../views/Dashboard'
-Vue.use(Vuelidate)
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -36,6 +36,16 @@ const routes = [
     path: '/forgot-password',
     name: 'ForgotPassword',
     component: Forgot
+  },
+  {
+    path: '/terminos-y-condiciones',
+    name: 'Terms',
+    component: Terms
+  },
+  {
+    path: '/politicas-de-privacidad',
+    name: 'Politics',
+    component: Politics
   },
   {
     path: '/dashboard',

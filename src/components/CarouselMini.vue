@@ -1,5 +1,5 @@
 <template>
-  <section style="padding-bottom: 100%;">
+  <section>
   <div class="carouselMini">
       <div class="prev"></div>
     <ul>
