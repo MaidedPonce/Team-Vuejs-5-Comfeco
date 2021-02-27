@@ -49,7 +49,7 @@
             placeholder="**************"
           />
           <div>
-            <span v-if="!$v.password.required && $v.password.$dirty" class="text-xs text-purple-400">Este campo es requerido</span>
+            <span v-if="!$v.password.required && $v.password.$dirty" class="text-xs text-red-400">Este campo es requerido</span>
             <span v-if="!$v.password.minLength && $v.password.$dirty" class="text-xs text-red-400">La contrasena debe contener al menos {{ $v.password.$params.minLength.min }} caracteres.</span>
           </div>
         </div>
