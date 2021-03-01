@@ -8,6 +8,7 @@ import Login from '../views/auth/Login'
 import SignUp from '../views/auth/SignUp'
 import Forgot from '../views/auth/Forgot'
 import Private from '../views/auth/Private'
+import Edit from '../components/Edit'
 // import Dashboard from '../views/Dashboard'
 Vue.use(Vuelidate)
 Vue.use(VueRouter)
@@ -44,7 +45,12 @@ const routes = [
     meta: {
       requiresAuth: true
     }
-  }
+  },
+  {
+    path: '/edit',
+    name: 'Edit',
+    component: Edit
+  },
 ]
 
 const router = new VueRouter({

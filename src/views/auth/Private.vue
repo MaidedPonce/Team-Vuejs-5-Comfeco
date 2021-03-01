@@ -6,7 +6,7 @@
 		<CarouselMini />
 		<Counter 
 			:year="2021"
-			:month="1"
+			:month="2"
 			:date="27"
 			:hour="23"
 			:minute="59"
