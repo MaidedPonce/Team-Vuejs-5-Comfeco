@@ -1,5 +1,10 @@
 <template>
-<section>
+<section style="
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+">
   <div class="carousel">
     <ul>
       <li class="item">
@@ -71,10 +76,8 @@ export default {
     .carousel {
     align-items: center;
     display: flex;
-    flex-direction: center;
     height: 200px;
     justify-content: center;
-    margin: auto;
     text-align: center;
     overflow: hidden;
     overflow-y: auto;
