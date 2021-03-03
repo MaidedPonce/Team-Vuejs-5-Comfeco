@@ -49,8 +49,11 @@ const routes = [
   {
     path: '/edit',
     name: 'Edit',
-    component: Edit
-  },
+    component: Edit,
+    meta: {
+      requiresAuth: true
+    }
+  }
 ]
 
 const router = new VueRouter({

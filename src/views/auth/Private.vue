@@ -1,6 +1,7 @@
 <template>
 	<div>
 		<button @click="logout()" to="/login" class="bg-red-400 block max-w-min text-sm px-4 py-2 leading-none border rounded text-white border-red-800 mt-4 md:mt-0 md:inline-block md:mx-1 lg:mt-0">Logout</button>
+		<router-link to="/edit" class="bg-purple-400 block max-w-min text-sm px-4 py-2 leading-none border rounded text-white border-purple-800 mt-4 md:mt-0 md:inline-block md:mx-1 lg:mt-0">Editar perfil</router-link>
 		<Section />
 		<Carousel />
 		<CarouselMini />

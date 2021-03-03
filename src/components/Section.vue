@@ -7,14 +7,11 @@
       <div class="card">
           Talleres
           <div>
-              <div class="card__list1">
-                <p>Talleres por areas de conocimiento</p>
-                <ul>
-                    <li>taller 1</li>
-                    <li>taller 2</li>
-                    <li>taller 3</li>
-                </ul>
-              </div>
+                <select class="card__list1">
+                    <option value="backend">Talleres por area de conocimiento</option>
+                    <option value="frontend">Frontend</option>
+                    <option value="bd">Base de Datos</option>
+                </select>
             <div class="card__list2">
                 <p class="card__list2--today">Hoy</p>
             <ul>
@@ -44,6 +41,7 @@ export default {
     background: rgb(209, 209, 209);
     width: 290px;
     height: 255px;
+    margin-bottom: -200px;
 }
 p {
     color: rgb(63, 63, 63);
@@ -52,13 +50,9 @@ p {
 .card__list1 {
     background: rgb(240, 240, 240);
     margin: 20px;
+    outline: none;
 }
-.card__list1 ul {
-    display: none;
-}
-.card__list1:hover ul, ul:hover {
-	display: block;
-}
+
 .card__list2 {
     margin-bottom: 0;
     margin: 20px;
