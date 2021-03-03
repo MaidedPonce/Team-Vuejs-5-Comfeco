@@ -9,7 +9,7 @@ import Forgot from '../views/auth/Forgot';
 import Terms from '../views/Terms';
 import Politics from '../views/Politics';
 import Private from '../views/auth/Private';
-import Edit from '../components/Edit';
+import Edit from '../views/private/profile/Edit';
 
 Vue.use(VueRouter);
 
@@ -60,6 +60,9 @@ const routes = [
     path: '/edit',
     name: 'Edit',
     component: Edit,
+    meta: {
+      requiresAuth: true,
+    },
   },
 ];
 
@@ -71,6 +74,7 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   const currentUser = auth.currentUser;
   const requirestAuth = to.matched.some((record) => record.meta.requiresAuth);
+
   if (requirestAuth && !currentUser) {
     next('login');
   } else if (!requirestAuth && currentUser) {
