@@ -1,5 +1,8 @@
 # comfeco
 
+## Config firebase
+Copy and rename `.env.example` to `.env` and config firebase keys
+
 ## Project setup
 ```
 npm install
