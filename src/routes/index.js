@@ -2,7 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 
 import { auth } from '../config/firebase';
-import Home from '../components/Home';
+import Home from '../views/Home';
 import Login from '../views/auth/Login';
 import SignUp from '../views/auth/SignUp';
 import Forgot from '../views/auth/Forgot';

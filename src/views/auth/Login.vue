@@ -1,26 +1,40 @@
 <template>
-  <div class="flex-grow bg-purple-400">
+  <div class="flex-grow bg-purple-400 py-16">
     <div
-      class="bg-white w-11/12 md:w-3/5 lg:w-2/6 mx-auto my-10 px-6 md:px-10 py-10">
+      class="bg-white w-11/12 md:w-3/5 lg:w-2/6 mx-auto my-10 px-6 md:px-10 py-10"
+    >
       <div class="text-center mb-8">
         <h2 class="text-gray-700 text-4xl font-bold">Login</h2>
-        <p class="text-3md mt-4">Ingresa tus credenciales para acceder a la plataforma</p>
+        <p class="text-3md mt-4">
+          Ingresa tus credenciales para acceder a la plataforma
+        </p>
       </div>
       <div v-if="loginError" class="bg-red-400 text-center my-2 py-2">
-        <span class="text-white">El correo o la contrasena son incorrectos</span>
+        <span class="text-white"
+          >El correo o la contrasena son incorrectos</span
+        >
       </div>
       <form @submit.prevent="login">
         <div class="my-3">
-          <label for="" class="block text-gray-600 my-1">Correo electronico</label>
+          <label for="" class="block text-gray-600 my-1"
+            >Correo electronico</label
+          >
           <input
             v-model.trim="$v.email.$model"
             type="text"
             class="w-full text-gray-700 border border-gray-700 focus:outline-none focus:border-pink-500 px-4 py-2 rounded-md"
-            :class="{'border-red-400' : ((!$v.email.required || !$v.email.email) && $v.email.$dirty) }"
+            :class="{
+              'border-red-400':
+                (!$v.email.required || !$v.email.email) && $v.email.$dirty,
+            }"
             placeholder="example@mail.com"
           />
           <div>
-            <span v-if="(!$v.email.required || !$v.email.email) && $v.email.$dirty" class="text-xs text-red-400">Un correo valido es requerido</span>
+            <span
+              v-if="(!$v.email.required || !$v.email.email) && $v.email.$dirty"
+              class="text-xs text-red-400"
+              >Un correo valido es requerido</span
+            >
           </div>
         </div>
         <div class="my-3">
@@ -29,11 +43,17 @@
             v-model.trim="$v.password.$model"
             type="password"
             class="w-full text-gray-700 border border-gray-700 focus:outline-none focus:border-pink-500 px-4 py-2 rounded-md"
-            :class="{'border-red-400' : ((!$v.email.required || !$v.email.email) && $v.email.$dirty) }"
+            :class="{
+              'border-red-400':
+                (!$v.email.required || !$v.email.email) && $v.email.$dirty,
+            }"
             placeholder="**************"
           />
           <div>
-            <span v-if="!$v.password.required && $v.password.$dirty" class="text-xs text-red-400">La contrasena es requerida</span
+            <span
+              v-if="!$v.password.required && $v.password.$dirty"
+              class="text-xs text-red-400"
+              >La contrasena es requerida</span
             >
           </div>
         </div>
@@ -78,11 +98,11 @@
 </template>
 
 <script>
-import { required, minLength, email } from "vuelidate/lib/validators";
-import { auth } from "./../../config/firebase";
+import { required, minLength, email } from 'vuelidate/lib/validators';
+import { auth } from './../../config/firebase';
 
 export default {
-  name: "Login",
+  name: 'Login',
   data() {
     return {
       email: '',
@@ -108,9 +128,10 @@ export default {
       this.$v.$touch();
 
       if (!this.$v.$invalid) {
-        auth.signInWithEmailAndPassword(this.email, this.password)
+        auth
+          .signInWithEmailAndPassword(this.email, this.password)
           .then(() => {
-            this.$router.replace("/dashboard");
+            this.$router.replace('/dashboard');
           })
           .catch(() => {
             this.isLoading = false;
@@ -119,7 +140,7 @@ export default {
       } else {
         this.isLoading = false;
       }
-    }
+    },
   },
 };
 </script>

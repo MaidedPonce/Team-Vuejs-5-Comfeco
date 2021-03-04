@@ -1,9 +1,7 @@
 <template>
   <div class="flex flex-col min-h-screen">
     <Header />
-    <div class="py-16">
-      <router-view />
-    </div>
+    <router-view />
     <Footer />
   </div>
 </template>
