@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-11/12 md:w-8/12 lg:w-11/12 m-auto flex-grow grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-x-8"
+    class="w-11/12 md:w-8/12 lg:w-11/12 m-auto flex-grow py-16 grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-x-8"
   >
     <div>
       <div class="bg-gray-300 p-4">
