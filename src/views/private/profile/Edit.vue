@@ -138,7 +138,28 @@
 </template>
 
 <script>
+import { auth } from '../../../config/firebase';
+
 export default {
   name: 'Edit',
+  methods: {
+    const: auth.onAuthStateChanged(function(user) {
+      if (user) {
+        var usern = auth.currentUser;
+        var name, email, photoUrl, uid, emailVerified;
+
+        if (usern != null) {
+          name = usern.displayName;
+          email = usern.email;
+          photoUrl = usern.photoURL;
+          emailVerified = usern.emailVerified;
+          uid = usern.uid;
+          console.log(name, email);
+        }
+      } else {
+        console.log('No estás navegando');
+      }
+    }),
+  },
 };
 </script>
