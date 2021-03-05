@@ -10,7 +10,7 @@
               <input type="text" placeholder="nickname"></label>
 
               <label class="title">Correo
-              <input type="text" placeholder="user@gmail.com"></label>
+              <input type="email" placeholder="user@gmail.com"></label>
             </div>
 
             <div class="form__section">
@@ -70,8 +70,8 @@
             <div class="form__section--text">
               <label for="Biografia">Biografia</label>
               <textarea></textarea>
-              <button>Guardar cambios</button>
             </div>
+        <button @click="update()">Guardar cambios</button>
       </form>
     </section>
 </template>
@@ -83,7 +83,7 @@ export default {
 name: 'Edit',
 data() {
   return {
-
+    
   }
 },
 methods: {
@@ -104,7 +104,16 @@ methods: {
     console.log('No estás navegando')
   }
 })
-}}
+},
+  update() {
+    var user = this.const
+    user.updateEmail("user@example.com").then(function() {
+      alert('Correo actualizado')
+  }).catch(function(error) {
+    alert('Ha habido un problema al actualizar el correo')
+  })
+  }
+}
 </script>
 
 <style>
