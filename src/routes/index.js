@@ -1,17 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-<<<<<<< HEAD
-import { auth } from '../config/firebase'
-import Home from '../components/Home'
-import Login from '../views/auth/Login'
-import SignUp from '../views/auth/SignUp'
-import Forgot from '../views/auth/Forgot'
-import Terms from '../views/Terms'
-import Politics from '../views/Politics'
-import Private from '../views/auth/Private'
-import Edit from '../components/Edit'
-=======
 import { auth } from '../config/firebase';
 import Home from '../views/Home';
 import Login from '../views/auth/Login';
@@ -21,7 +10,6 @@ import Terms from '../views/Terms';
 import Politics from '../views/Politics';
 import Private from '../views/auth/Private';
 import Edit from '../views/private/profile/Edit';
->>>>>>> 16df53146228ea4248ae3ea30d1baee5cd87750b
 
 Vue.use(VueRouter)
 
@@ -84,14 +72,9 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-<<<<<<< HEAD
-  const currentUser = auth.currentUser
-  const requirestAuth = to.matched.some((record) => record.meta.requiresAuth)
-=======
   const currentUser = auth.currentUser;
   const requirestAuth = to.matched.some((record) => record.meta.requiresAuth);
 
->>>>>>> 16df53146228ea4248ae3ea30d1baee5cd87750b
   if (requirestAuth && !currentUser) {
     next('login')
   } else if (!requirestAuth && currentUser) {
