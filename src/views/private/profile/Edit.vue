@@ -196,9 +196,25 @@ export default {
 
     guardar(){
       let usuario_activo = auth.currentUser;
-      database.ref('users/' + usuario_activo.uid).set(this.info).then(() =>{
-        alert("Se ha actualizado la informacion")
+
+      let updateProfile = usuario_activo.updateProfile({
+        displayName: this.nickname
       })
+
+      let updateEmail = usuario_activo.updateEmail(this.email)
+      //let updatePassword = usuario_activo.updatePassword(this.password)
+      let updateInfo = database.ref('users/' + usuario_activo.uid).set(this.info)
+
+      Promise.all([updateProfile, 
+                  updateEmail,
+                 // updatePassword,
+                  updateInfo])
+              .then(() =>{
+                alert("Se ha actualizado el perfil")
+              })
+              .catch(() =>{
+                alert("Ingrese password")
+              });
 
     },
   },
