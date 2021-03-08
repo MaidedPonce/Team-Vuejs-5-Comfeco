@@ -19,6 +19,7 @@
             >Nick</label
           >
           <input
+            v-model="nickname"
             type="text"
             class="w-full text-gray-700 border border-purple-700 px-2 py-1 rounded-md"
           />
@@ -28,6 +29,7 @@
             >Correo Electronico</label
           >
           <input
+            v-model="email"
             type="text"
             class="w-full text-gray-700 border border-purple-700 px-2 py-1 rounded-md"
           />
@@ -39,6 +41,7 @@
             >Genero</label
           >
           <input
+            v-model="info.genero"
             type="text"
             class="w-full text-gray-700 border border-purple-700 px-2 py-1 rounded-md"
           />
@@ -48,6 +51,7 @@
             >Fecha de nacimiento</label
           >
           <input
+            v-model="info.fecha_nacimiento"
             type="text"
             class="w-full text-gray-700 border border-purple-700 px-2 py-1 rounded-md"
           />
@@ -57,6 +61,7 @@
             >Pais</label
           >
           <input
+            v-model="info.pais"
             type="text"
             class="w-full text-gray-700 border border-purple-700 px-2 py-1 rounded-md"
           />
@@ -68,6 +73,7 @@
             >Contrasena</label
           >
           <input
+            v-model="password"
             type="text"
             class="w-full text-gray-700 border border-purple-700 px-2 py-1 rounded-md"
           />
@@ -88,6 +94,7 @@
             >facebook.com/</label
           >
           <input
+            v-model="info.facebook"
             type="text"
             class="w-full text-gray-700 border border-purple-700 px-2 py-1 rounded-md"
           />
@@ -97,6 +104,7 @@
             >github.com/</label
           >
           <input
+            v-model="info.github"
             type="text"
             class="w-full text-gray-700 border border-purple-700 px-2 py-1 rounded-md"
           />
@@ -106,6 +114,7 @@
             >linkedin.com/in/</label
           >
           <input
+            v-model="info.linkedin"
             type="text"
             class="w-full text-gray-700 border border-purple-700 px-2 py-1 rounded-md"
           />
@@ -115,6 +124,7 @@
             >twitter.com/</label
           >
           <input
+            v-model="info.twitter"
             type="text"
             class="w-full text-gray-700 border border-purple-700 px-2 py-1 rounded-md"
           />
@@ -125,11 +135,12 @@
           >Biografia</label
         >
         <textarea
+          v-model="info.biografia"
           class="w-full h-24 border resize-text-gray-700 none border-purple-700 p-1 rounded-md"
         ></textarea>
       </div>
       <div>
-        <button class="w-full text-gray-300 py-2 rounded-lg bg-purple-500">
+        <button @click="guardar" class="w-full text-gray-300 py-2 rounded-lg bg-purple-500">
           Guardar Cambios
         </button>
       </div>
@@ -138,28 +149,58 @@
 </template>
 
 <script>
-import { auth } from '../../../config/firebase';
+import { auth, database} from '../../../config/firebase';
+
 
 export default {
   name: 'Edit',
-  methods: {
-    const: auth.onAuthStateChanged(function(user) {
-      if (user) {
-        var usern = auth.currentUser;
-        var name, email, photoUrl, uid, emailVerified;
 
-        if (usern != null) {
-          name = usern.displayName;
-          email = usern.email;
-          photoUrl = usern.photoURL;
-          emailVerified = usern.emailVerified;
-          uid = usern.uid;
-          console.log(name, email);
-        }
-      } else {
-        console.log('No estás navegando');
-      }
-    }),
+  data() {
+    return {
+      nickname: "",
+      email: "",
+      password: "",
+
+      info: {
+        genero: "",
+        fecha_nacimiento: "",
+        pais: "",
+        facebook: "",
+        github: "",
+        linkedin: "",
+        twitter: "",
+        biografia: "",
+      },
+    };
+  },
+
+  mounted(){
+    let user = auth.currentUser;
+    this.nickname = user.displayName;
+    this.email = user.email;
+
+    database.ref('/users/' + user.uid).once('value').then((snapshot) => {
+      this.info.genero = (snapshot.val() && snapshot.val().genero) || ""
+      this.info.fecha_nacimiento = (snapshot.val() && snapshot.val().fecha_nacimiento) || ""
+      this.info.pais = (snapshot.val() && snapshot.val().pais) || ""
+      this.info.facebook = (snapshot.val() && snapshot.val().facebook) || ""
+      this.info.github = (snapshot.val() && snapshot.val().github) || ""
+      this.info.linkedin = (snapshot.val() && snapshot.val().linkedin) || ""
+      this.info.twitter = (snapshot.val() && snapshot.val().twitter) || ""
+      this.info.biografia = (snapshot.val() && snapshot.val().biografia) || ""
+    })
+    
+  },
+
+  methods: {
+
+    guardar(){
+      let usuario_activo = auth.currentUser;
+      database.ref('users/' + usuario_activo.uid).set(this.info).then(() =>{
+        alert("Se ha actualizado la informacion")
+      })
+
+    },
   },
 };
 </script>
