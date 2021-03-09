@@ -8,8 +8,10 @@ import SignUp from '../views/auth/SignUp';
 import Forgot from '../views/auth/Forgot';
 import Terms from '../views/Terms';
 import Politics from '../views/Politics';
-import Private from '../views/auth/Private';
+import Dashboard from '../views/private/Dashboard';
 import Edit from '../views/private/profile/Edit';
+import Badges from '../views/private/profile/Badges';
+import MyProfile from '../views/private/profile/MyProfile';
 
 Vue.use(VueRouter);
 
@@ -50,11 +52,21 @@ const routes = [
   },
   {
     path: '/dashboard',
-    name: 'Private',
-    component: Private,
+    name: 'Dashboard',
+    component: Dashboard,
     meta: {
       requiresAuth: true,
     },
+    children: [
+      {
+        path: '',
+        component: MyProfile,
+      },
+      {
+        path: 'insignias',
+        component: Badges,
+      },
+    ],
   },
   {
     path: '/edit',
