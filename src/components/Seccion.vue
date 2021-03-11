@@ -1,5 +1,5 @@
 <template>
-  <section class="space-y-4">
+  <Seccion class="space-y-4">
     <div class="flex justify-between">
       <h3 class="text-xl font-semibold">Talleres</h3>
       <a href="#" class="text-blue-500 font-semibold">Ver mas</a>
@@ -72,11 +72,11 @@
         </div>
       </div>
     </div>
-  </section>
+  </Seccion>
 </template>
 
 <script>
 export default {
-  name: 'Section',
+  name: 'Seccion',
 };
 </script>

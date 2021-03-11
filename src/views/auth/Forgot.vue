@@ -4,9 +4,9 @@
       class="bg-white w-11/12 md:w-3/5 lg:w-2/6 mx-auto my-10 px-6 md:px-10 py-10"
     >
       <div class="text-center mb-10">
-        <h2 class="text-4xl font-bold">Recuperar Contrasena</h2>
+        <h2 class="text-4xl font-bold">Recuperar contraseña</h2>
         <p class="text-3md mt-2">
-          Ingresa tu correo para reestablecer tu contrasena
+          Ingresa tu correo para reestablecer tu contraseña
         </p>
       </div>
       <div v-if="error" class="bg-red-400 text-center my-2 py-2">
@@ -15,7 +15,7 @@
       <form @submit.prevent="send">
         <div class="my-3">
           <label for="" class="block text-gray-600 my-1"
-            >Correo electronico</label
+            >Correo electrónico</label
           >
           <input
             v-model.trim="$v.email.$model"
@@ -45,7 +45,7 @@
           type="submit"
           :disabled="isLoading"
         >
-          Reestablecer contrasena
+          Reestablecer contraseña
         </button>
       </form>
       <p class="text-gray-600 mt-8 text-center">

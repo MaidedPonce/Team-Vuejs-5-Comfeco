@@ -1,6 +1,6 @@
 <template>
   <section>
-  <div class="carouselMini">
+  <div class="carruselMini">
       <div class="prev"></div>
     <ul>
       <li class="itemMini">
@@ -41,12 +41,12 @@
 
 <script>
 export default {
-name: 'CarouselMini'
+name: 'CarruselMini'
 }
 </script>
 
 <style>
-.carouselMini {
+.carruselMini {
     align-items: center;
     display: flex;
     flex-direction: center;
@@ -59,10 +59,10 @@ name: 'CarouselMini'
     width: 400px;
 }
 
-.carouselMini::-webkit-scrollbar {
+.carruselMini::-webkit-scrollbar {
     width: 0;
 }
-.carouselMini ul {
+.carruselMini ul {
     display: flex;
 }
 

@@ -1,24 +1,5 @@
 <template>
-<<<<<<< HEAD
-  <div class="flex-grow py-12">
-    <router-link class="w-full bg-yellow-600 hover:bg-yellow-400 text-white font-semibold mt-2 py-3"
-          to="/edit" type="submit" >Editar perfil</router-link>
-    <Section />
-    <Carousel />
-    <CarouselMini />
-    <Counter
-      :year="2021"
-      :month="2"
-      :date="27"
-      :hour="23"
-      :minute="59"
-      :second="59"
-      :millisecond="31"
-    />
-=======
-  <div
-    class="w-11/12 md:w-8/12 lg:w-11/12 m-auto flex-grow py-16 grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-x-8"
-  >
+  <div class="w-11/12 md:w-8/12 lg:w-11/12 m-auto flex-grow py-16 grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-x-8">
     <div>
       <div class="bg-gray-300 p-4">
         <section class="space-y-4">
@@ -73,8 +54,8 @@
       </div>
     </div>
     <div class="col-span-3">
-      <Carousel />
-      <CarouselMini />
+      <Carrusel />
+      <CarruselMini />
       <Counter
         :year="2021"
         :month="2"
@@ -86,26 +67,35 @@
       />
     </div>
     <div class="bg-gray-300 p-4 h-80 overflow-y-scroll">
-      <Section />
+      <Seccion />
     </div>
->>>>>>> 16df53146228ea4248ae3ea30d1baee5cd87750b
   </div>
 </template>
 
 <script>
-import Carousel from '../../components/Carousel';
-import CarouselMini from '../../components/CarouselMini';
+import Carrusel from '../../components/Carrusel';
+import CarruselMini from '../../components/CarruselMini';
 import Counter from '../../components/Counter';
-import Section from '../../components/Section';
+import Seccion from '../../components/Seccion';
 
 export default {
-  name: 'Private',
+  name: 'Tablero',
   components: {
-    Carousel,
-    CarouselMini,
+    Carrusel,
+    CarruselMini,
     Counter,
-    Section,
+    Seccion,
   },
-  methods: {},
+  methods: {
+    setSelected(tab) {
+      this.selected = tab
+    }
+  },
 };
 </script>
+<style>
+.design {
+  display: flex;
+}
+
+</style>

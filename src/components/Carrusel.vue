@@ -5,7 +5,7 @@
     justify-content: center;
     margin: auto;
 ">
-  <div class="carousel">
+  <div class="carrusel">
     <ul>
       <li class="item">
           <img class="item__img" src="../assets/images/bazaelperez.png" alt="bazaelperez">
@@ -68,12 +68,12 @@
 
 <script>
 export default {
-    name: 'Carousel',
+    name: 'Carrusel',
 }
 </script>
 
 <style scoped>
-    .carousel {
+    .carrusel {
     align-items: center;
     display: flex;
     height: 200px;
@@ -83,7 +83,7 @@ export default {
     overflow-y: auto;
     width: 600px;
     }
-    .carousel ul {
+    .carrusel ul {
       display: flex;
       top: 0;
     }

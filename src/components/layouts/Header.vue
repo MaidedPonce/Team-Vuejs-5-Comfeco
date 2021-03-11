@@ -91,9 +91,9 @@
             >
           </a>
           <router-link
-            to="/dashboard"
+            to="/tablero"
             class="text-sm block md:px-2 py-2 hover:text-gray-600"
-            >Dashboard</router-link
+            >Tablero</router-link
           >
           <router-link
             to="/edit"
@@ -107,15 +107,15 @@
             @click="logout"
             href="#"
             class="text-sm text-red-600 font-bold block md:px-2 py-2 hover:text-red-400"
-            >Cerrar Sesion</a
+            >Cerrar Sesión</a
           >
         </div>
       </div>
       <div v-if="!isLoggedIn">
         <router-link
-          to="/login"
+          to="/iniciarsesion"
           class="bg-pink-400 block max-w-min text-sm px-4 py-2 leading-none border rounded text-white border-pink-800 mt-4 md:mt-0 md:inline-block md:mx-1 lg:mt-0"
-          >Entrar</router-link
+          >Iniciar Sesion</router-link
         >
         <router-link
           to="/register"

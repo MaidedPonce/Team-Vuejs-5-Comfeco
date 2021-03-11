@@ -44,7 +44,7 @@
 
         <div class="my-3">
           <label for="" class="block text-gray-600 my-1"
-            >Correo electronico</label
+            >Correo electrónico</label
           >
           <input
             name="email"
@@ -71,7 +71,7 @@
           </div>
         </div>
         <div class="my-3">
-          <label for="" class="block text-gray-600 my-1">Contrasena</label>
+          <label for="" class="block text-gray-600 my-1">contraseña</label>
           <input
             name="password"
             type="password"
@@ -93,14 +93,14 @@
             <span
               v-if="!$v.password.minLength && $v.password.$dirty"
               class="text-xs text-red-400"
-              >La contrasena debe contener al menos
+              >La contraseña debe contener al menos
               {{ $v.password.$params.minLength.min }} caracteres.</span
             >
           </div>
         </div>
         <div class="my-3">
           <label for="" class="block text-gray-600 my-1"
-            >Confirmar Contrasena</label
+            >Confirmar contraseña</label
           >
           <input
             name="confirm"
@@ -116,7 +116,7 @@
             <span
               v-if="!$v.confirm.sameAs && $v.confirm.$dirty"
               class="text-xs text text-red-400"
-              >La contrasena debe ser la misma</span
+              >La contraseña debe ser la misma</span
             >
           </div>
         </div>
@@ -166,7 +166,7 @@
       </div>
       <p class="text-gray-600 mt-8 text-center">
         Tienes una cuenta?
-        <router-link to="/login" class="text-purple-500 font-semibold"
+        <router-link to="/iniciarsesion" class="text-purple-500 font-semibold"
           >Iniciar Sesion</router-link
         >
       </p>
@@ -182,11 +182,11 @@ import {
   minLength,
   email,
 } from 'vuelidate/lib/validators';
-import { auth } from './../../config/firebase';
+import { auth } from '../../config/firebase';
 import getGravatarUrl from '../../utils/gravatar';
 
 export default {
-  name: 'SignUp',
+  name: 'Registrarse',
   data() {
     return {
       nick: '',
