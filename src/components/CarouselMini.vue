@@ -1,47 +1,50 @@
 <template>
   <section>
   <div class="carouselMini">
-      <div class="prev"></div>
+      <div class="prev" v-on:click="prev"></div>
     <ul>
-      <li class="itemMini">
-          <img class="itemMini__img" src="../assets/images/huawei.jpg" alt="organization">
-      </li>
-      <li class="itemMini">
-          <img class="itemMini__img" src="../assets/images/tekki.jpg" alt="organization">
-      </li>
-      <li class="itemMini">
-          <img class="itemMini__img" src="../assets/images/fernandoherrera.jpg" alt="organization">
-      </li>
-      <li class="itemMini">
-          <img class="itemMini__img" src="../assets/images/domini.jpg" alt="organization">
-      </li>
-      <li class="itemMini">
-          <img class="itemMini__img" src="../assets/images/codigofacilito.png" alt="organization">
-      </li>
-      <li class="itemMini">
-          <img class="itemMini__img" src="../assets/images/codelytv.png" alt="organization">
-      </li>
-      <li class="itemMini">
-          <img class="itemMini__img" src="../assets/images/egghead.png" alt="organization">
-      </li>
-      <li class="itemMini">
-          <img class="itemMini__img" src="../assets/images/joselujan.jpg" alt="organization">
-      </li>
-      <li class="itemMini">
-          <img class="itemMini__img" src="../assets/images/latamdev.jpg" alt="organization">
-      </li>
-      <li class="itemMini">
-          <img class="itemMini__img" src="../assets/images/leonidasesteban.jpg" alt="organization">
+      <li class="itemMini" v-for="(item, index) in sponsors" :key="index">
+          <img class="itemMini__img" :src="item" alt="organization" />
       </li>
     </ul> 
-    <div class="next"></div>
+    <div class="next" v-on:click="next"></div>
   </div>
 </section>
 </template>
 
 <script>
 export default {
-name: 'CarouselMini'
+name: 'CarouselMini',
+
+data () {
+    return {
+        sponsors: 
+        [ "/assets/images/huawei.jpg"
+        , "/assets/images/tekki.jpg"
+        , "/assets/images/fernandoherrera.jpg"
+        , "/assets/images/domini.jpg"
+        , "/assets/images/codigofacilito.png"
+        , "/assets/images/codelytv.png"
+        , "/assets/images/egghead.png"
+        , "/assets/images/joselujan.jpg"
+        , "/assets/images/latamdev.jpg"
+        , "/assets/images/leonidasesteban.jpg"
+        ]
+    }
+},
+
+methods: {
+    prev () {
+        let first = this.sponsors.shift();
+        this.sponsors.push(first)
+    },
+
+    next() {
+        let last = this.sponsors.pop();
+        this.sponsors.unshift(last);
+
+    }
+}
 }
 </script>
 
