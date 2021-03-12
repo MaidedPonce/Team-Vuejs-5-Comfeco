@@ -3,8 +3,14 @@
     align-items: center;
     display: flex;
     justify-content: center;
-    margin: auto;
-">
+    margin: auto;">
+    <div>
+      <h1 style="
+        font-size: revert;
+        font-weight: bold;
+        text-align: center;
+        padding-top: 20px;
+      ">Ellos ya creen en esta iniciativa:</h1>
   <div class="carousel">
     <ul>
       <li class="item">
@@ -22,7 +28,7 @@
               <img src="../assets/images/javascript.png" alt="javascript">
             </div>
             <div class="item__name">
-            <p>Nicolas Schurmann</p> 
+            <p>Nicolas Schürmann</p> 
             </div>
       </li>
       <li class="item">
@@ -62,13 +68,14 @@
             </div>
       </li>
     </ul> 
+    </div>
   </div>
 </section>
 </template>
 
 <script>
 export default {
-    name: 'Carousel',
+    name: 'Carrusel',
 }
 </script>
 
@@ -105,15 +112,16 @@ export default {
 }
 
 .item__name {
-    background-color: rgba(0, 0, 0, 0.514);
-    bottom: 30px;
-    height: 25%;
-    position: relative;
+  background: rgba(0, 0, 0, 0.603);
+  bottom: 30px;
+  height: 25%;
+  position: relative;
 }
 .logo img {
   border: 1px solid white;
   border-radius: 100%;
   bottom: 15px;
+  box-shadow: 1px 6px 6px 2px rgb(68 68 68);
   height: 30px;
   margin-left: 41%;
   position: relative;

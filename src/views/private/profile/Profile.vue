@@ -1,4 +1,3 @@
-  
 <template>
   <Submenu :tabs="['Insignias', 'Perfil', 'Comunidades']" :selected="selected" @selected="setSelected" class="bg-purple-300">
       <Tab :isSelected="selected === 'Insignias'" class="design">
