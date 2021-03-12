@@ -16,7 +16,7 @@
       <div class="px-2">
         <div class="flex py-3 space-x-2 border-t border-purple-500">
           <figure class="w-8 h-8 rounded-full overflow-hidden border">
-            <img src="../assets/avatar.jpg" alt="avatar" />
+            <img src="../../assets/avatar.jpg" alt="avatar" />
           </figure>
           <div>
             <h4 class="text-lg font-semibold leading-none">
@@ -30,7 +30,7 @@
         </div>
         <div class="flex py-3 space-x-2 border-t border-purple-500">
           <figure class="w-8 h-8 rounded-full overflow-hidden border">
-            <img src="../assets/avatar.jpg" alt="avatar" />
+            <img src="../../assets/avatar.jpg" alt="avatar" />
           </figure>
           <div>
             <h4 class="text-lg font-semibold leading-none">
@@ -44,7 +44,7 @@
         </div>
         <div class="flex py-3 space-x-2 border-t border-purple-500">
           <figure class="w-8 h-8 rounded-full overflow-hidden border">
-            <img src="../assets/avatar.jpg" alt="avatar" />
+            <img src="../../assets/avatar.jpg" alt="avatar" />
           </figure>
           <div>
             <h4 class="text-lg font-semibold leading-none">
@@ -58,7 +58,7 @@
         </div>
         <div class="flex py-3 space-x-2 border-t border-purple-500">
           <figure class="w-8 h-8 rounded-full overflow-hidden border">
-            <img src="../assets/avatar.jpg" alt="avatar" />
+            <img src="../../assets/avatar.jpg" alt="avatar" />
           </figure>
           <div>
             <h4 class="text-lg font-semibold leading-none">

@@ -11,13 +11,13 @@
       </div>
       <div v-if="loginError" class="bg-red-400 text-center my-2 py-2">
         <span class="text-white"
-          >El correo o la contrasena son incorrectos</span
+          >El correo o la contraseña son incorrectos</span
         >
       </div>
       <form @submit.prevent="login">
         <div class="my-3">
           <label for="" class="block text-gray-600 my-1"
-            >Correo electronico</label
+            >Correo electrónico</label
           >
           <input
             v-model.trim="$v.email.$model"
@@ -38,7 +38,7 @@
           </div>
         </div>
         <div class="my-3">
-          <label for="" class="block text-gray-600 my-1">Contrasena</label>
+          <label for="" class="block text-gray-600 my-1">Contraseña</label>
           <input
             v-model.trim="$v.password.$model"
             type="password"
@@ -53,7 +53,7 @@
             <span
               v-if="!$v.password.required && $v.password.$dirty"
               class="text-xs text-red-400"
-              >La contrasena es requerida</span
+              >La contraseña es requerida</span
             >
           </div>
         </div>
@@ -66,7 +66,7 @@
             <router-link
               to="/forgot-password"
               class="text-purple-500 font-semibold"
-              >Olvidaste tu contrasena?</router-link
+              >¿Olvidaste tu contraseña?</router-link
             >
           </div>
         </div>
