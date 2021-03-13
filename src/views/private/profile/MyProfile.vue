@@ -2,10 +2,10 @@
   <section
     class="w-11/12 md:w-8/12 lg:w-11/12 m-auto flex-grow py-16 grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-x-12"
   >
-    <div class="text-center border border-purple-400">
+    <div class="text-center border border-purple-300">
       <figure class="w-48 m-auto p-4">
         <img
-          class="rounded-full border"
+          class="rounded-full border border-gray-500"
           src="../../../assets/avatar.jpg"
           alt="Homero Simpson"
         />

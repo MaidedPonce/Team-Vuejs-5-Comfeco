@@ -3,7 +3,7 @@
     class="flex items-center justify-between shadow-md z-10 flex-wrap px-6 py-3 md:px-10"
   >
     <div class="flex items-center flex-shrink-0 mr-8">
-      <router-link to="/">
+      <router-link :to="{ name: 'home' }">
         <img
           class="w-32 h-auto md:w-48"
           src="../../assets/images/logo.png"
