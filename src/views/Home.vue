@@ -17,15 +17,7 @@
       </div>
       <Carousel />
       <CarouselMini />
-      <Counter
-        :year="2021"
-        :month="2"
-        :date="27"
-        :hour="23"
-        :minute="59"
-        :second="59"
-        :millisecond="31"
-      />
+      <Counter :deadline="deadline" />
     </div>
     <div class="h-full p-4">
       <Workshops />
@@ -41,13 +33,23 @@ import Workshops from '../components/sidebar/Workshops';
 import Communities from '../components/sidebar/Communities';
 
 export default {
-  name: 'Private',
+  name: 'Home',
+  data() {
+    return {
+      deadline: '',
+    };
+  },
   components: {
     Carousel,
     CarouselMini,
     Counter,
     Workshops,
     Communities,
+  },
+  mounted() {
+    // Uncommend next line for add 2 minutes to current time
+    // this.deadline = new Date(new Date().getTime() + 2 * 60000).toUTCString();
+    this.deadline = new Date('Mar 30 2021 10:00:00 GMT-0500').toUTCString();
   },
   methods: {},
 };
