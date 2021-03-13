@@ -1,8 +1,10 @@
 <template>
-  <section class="w-full flex justify-center space-x-8 py-6">
+  <section
+    class="w-11/12 md:w-8/12 m-auto grid grid-cols-2 md:grid-cols-4 gap-4"
+  >
     <router-link
       to="/dashboard"
-      class="flex bg-purple-300 py-4 px-14 rounded-md space-x-2 text-purple-800"
+      class="flex bg-purple-300 py-4 justify-center rounded-md space-x-2 text-purple-800"
     >
       <svg
         class="w-6 h-6"
@@ -22,7 +24,7 @@
     </router-link>
     <router-link
       to="/dashboard/insignias"
-      class="flex bg-purple-300 py-4 px-14 rounded-md space-x-2 text-purple-800"
+      class="flex bg-purple-300 py-4 justify-center rounded-md space-x-2 text-purple-800"
     >
       <svg
         class="w-6 h-6"
@@ -46,7 +48,7 @@
     </router-link>
     <a
       href="#"
-      class="flex bg-purple-300 py-4 px-14 rounded-md space-x-2 text-purple-800"
+      class="flex bg-purple-300 py-4 justify-center rounded-md space-x-2 text-purple-800"
     >
       <svg
         class="w-6 h-6"
@@ -66,7 +68,7 @@
     </a>
     <a
       href="#"
-      class="flex bg-purple-300 py-4 px-14 rounded-md space-x-2 text-purple-800"
+      class="flex bg-purple-300 py-4 justify-center rounded-md space-x-2 text-purple-800"
     >
       <svg
         class="w-6 h-6"

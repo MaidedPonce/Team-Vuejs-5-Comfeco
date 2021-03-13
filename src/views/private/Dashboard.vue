@@ -1,5 +1,5 @@
 <template>
-  <section class="flex-grow">
+  <section class="flex-grow py-16">
     <Header />
     <router-view></router-view>
   </section>

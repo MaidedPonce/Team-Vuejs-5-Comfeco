@@ -7,7 +7,7 @@
       El momento ha llegado
       <!-- <a href="#" class="text-blue-600 font-semibold">click aqui</a> -->
     </p>
-    <div v-else class="md:w-2/3 m-auto grid grid-cols-4 gap-8">
+    <div v-else class="md:w-2/3 m-auto grid grid-cols-2 md:grid-cols-4 gap-8">
       <div class="text-center border border-gray-300 rounded-lg shadow-md p-4">
         <p class="text-2xl font-semibold">{{ this.days }}</p>
         <span class="text-gray-600">dias</span>

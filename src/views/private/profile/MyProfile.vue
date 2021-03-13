@@ -1,6 +1,6 @@
 <template>
   <section
-    class="w-11/12 md:w-8/12 lg:w-11/12 m-auto flex-grow py-16 grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-x-12"
+    class="w-11/12 md:w-8/12 lg:w-11/12 m-auto flex-grow py-16 grid grid-cols-1 lg:grid-cols-5 gap-y-10 md:gap-4 lg:gap-x-12"
   >
     <div class="text-center border border-purple-300">
       <figure class="w-48 m-auto p-4">
@@ -28,23 +28,35 @@
     <div class="col-span-3 space-y-4">
       <div class="bg-gray-400 p-4">
         <h3 class="text-lg font-semibold">Insignias</h3>
-        <div class="w-4/6 m-auto flex justify-between">
-          <div class="w-24 h-24 bg-green-500 rounded-full"></div>
-          <div class="w-24 h-24 bg-green-500 rounded-full"></div>
-          <div class="w-24 h-24 bg-green-500 rounded-full"></div>
-          <div class="w-24 h-24 bg-green-500 rounded-full"></div>
+        <div class="w-full md:w-4/6 m-auto flex justify-between">
+          <div
+            class="w-12 h-12 md:w-24 md:h-24 bg-green-500 rounded-full"
+          ></div>
+          <div
+            class="w-12 h-12 md:w-24 md:h-24 bg-green-500 rounded-full"
+          ></div>
+          <div
+            class="w-12 h-12 md:w-24 md:h-24 bg-green-500 rounded-full"
+          ></div>
+          <div
+            class="w-12 h-12 md:w-24 md:h-24 bg-green-500 rounded-full"
+          ></div>
         </div>
       </div>
       <div class="">
         <h3 class="text-lg font-semibold p-4">Actividad Reciente</h3>
         <div class="space-y-2">
-          <div class="p-4 flex items-center border border-gray-400 shadow-md">
+          <div
+            class="p-4 flex items-center border border-gray-400 shadow-md space-x-2"
+          >
             <div class="flex-grow">
               Te has unido al evento Community Fest and Code
             </div>
             <figure class="w-14 h-14 bg-green-800"></figure>
           </div>
-          <div class="p-4 flex items-center border border-gray-400 shadow-md">
+          <div
+            class="p-4 flex items-center border border-gray-400 shadow-md space-x-2"
+          >
             <div class="flex-grow">
               Te has unido al evento Community Fest and Code
             </div>
@@ -53,7 +65,7 @@
         </div>
       </div>
     </div>
-    <div class="h-full p-4">
+    <div class="p-4">
       Eventos de tu interes
     </div>
   </section>

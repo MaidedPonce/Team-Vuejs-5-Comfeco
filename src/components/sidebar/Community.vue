@@ -3,7 +3,7 @@
     <figure class="w-12 h-12 rounded-full overflow-hidden">
       <img src="../../assets/avatar.jpg" alt="avatar" />
     </figure>
-    <div>
+    <div class="flex-grow">
       <h4 class="text-lg font-semibold leading-none">
         Comunidad de Programadores
       </h4>

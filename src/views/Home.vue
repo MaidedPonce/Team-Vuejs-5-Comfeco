@@ -1,10 +1,10 @@
 <template>
   <section
-    class="w-11/12 md:w-8/12 lg:w-11/12 m-auto flex-grow py-16 grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-x-12"
+    class="w-11/12 md:w-8/12 lg:w-11/12 m-auto flex-grow py-16 grid grid-cols-1 lg:grid-cols-5 lg:gap-4 lg:gap-x-12"
   >
     <Communities />
     <div class="col-span-3">
-      <div class="text-center w-5/6 m-auto">
+      <div class="text-center w-full md:w-5/6 m-auto">
         <h1 class="text-3xl font-bold">
           Bienvenidos a Community Fest and Code
         </h1>
