@@ -1,29 +1,25 @@
 <template>
-  <section
-    style="
-font-family: Verdana, Geneva, Tahoma, sans-serif;
-"
-  >
+  <section>
     <div class="time">
-      <h3 v-if="!expired">Time</h3>
-      <h3 v-else>It's Done</h3>
+      <h3 v-if="!expired" style="color: white;">Tiempo</h3>
+      <h3 v-else>Terminado</h3>
     </div>
     <div v-if="loaded" class="timer">
       <div class="timer__numbers">
         {{ displayDays }}
-        <p>Days</p>
+        <p>Días</p>
       </div>
       <div class="timer__numbers">
         {{ displayHours }}
-        <p>Hours</p>
+        <p>Horas</p>
       </div>
       <div class="timer__numbers">
         {{ displayMinutes }}
-        <p>Minutes</p>
+        <p>Minutos</p>
       </div>
       <div class="timer__numbers">
         {{ displaySeconds }}
-        <p>Seconds</p>
+        <p>Segundos</p>
       </div>
     </div>
   </section>
@@ -98,32 +94,32 @@ export default {
 
 <style scope>
 .timer {
-  justify-content: center;
   align-items: center;
-  display: flex;
-  width: 500px;
-  margin: auto;
-  height: 300px;
   background: rgba(196, 43, 235, 0.609);
+  display: flex;
+  height: 300px;
+  justify-content: center;
+  margin: auto;
+  width: 500px;
 }
-.time h3 {
+.time {
+  align-items: center;
   background: rgba(0, 0, 0, 0.603);
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 500px;
-  margin: auto;
   font-size: 30px;
+  justify-content: center;
+  margin: auto;
+  width: 500px;
 }
 .timer__items {
-  justify-content: center;
   align-items: center;
   display: flex;
+  justify-content: center;
 }
 .timer__numbers {
-  text-align: center;
-  margin-left: 20px;
   font-size: 30px;
+  margin-left: 20px;
+  text-align: center;
 }
 .timer__numbers p {
   color: black;

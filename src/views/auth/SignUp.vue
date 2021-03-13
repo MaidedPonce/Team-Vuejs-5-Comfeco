@@ -44,7 +44,7 @@
 
         <div class="my-3">
           <label for="" class="block text-gray-600 my-1"
-            >Correo electronico</label
+            >Correo electrónico</label
           >
           <input
             name="email"
@@ -71,7 +71,7 @@
           </div>
         </div>
         <div class="my-3">
-          <label for="" class="block text-gray-600 my-1">Contrasena</label>
+          <label for="" class="block text-gray-600 my-1">Contraseña</label>
           <input
             name="password"
             type="password"
@@ -100,7 +100,7 @@
         </div>
         <div class="my-3">
           <label for="" class="block text-gray-600 my-1"
-            >Confirmar Contrasena</label
+            >Confirmar Contraseña</label
           >
           <input
             name="confirm"
@@ -116,7 +116,7 @@
             <span
               v-if="!$v.confirm.sameAs && $v.confirm.$dirty"
               class="text-xs text text-red-400"
-              >La contrasena debe ser la misma</span
+              >La contraseña debe ser la misma</span
             >
           </div>
         </div>
@@ -128,7 +128,7 @@
               to="/terminos-y-condiciones"
               class="text-blue-600 font-semibold"
               target="_blank"
-              >Terminos y condiciones</router-link
+              >Términos y condiciones</router-link
             >
             y las
             <router-link
@@ -142,7 +142,7 @@
             <span
               v-if="!$v.terms.sameAs && $v.terms.$dirty"
               class="text-xs text-red-400"
-              >Debes aceptar los terminos y condiciones y las politicas de
+              >Debes aceptar los términos y condiciones y las politicas de
               privacidad</span
             >
           </div>
@@ -165,9 +165,9 @@
         </div>
       </div>
       <p class="text-gray-600 mt-8 text-center">
-        Tienes una cuenta?
+        ¿Ya tienes una cuenta?
         <router-link to="/login" class="text-purple-500 font-semibold"
-          >Iniciar Sesion</router-link
+          >Iniciar Sesión</router-link
         >
       </p>
     </div>
