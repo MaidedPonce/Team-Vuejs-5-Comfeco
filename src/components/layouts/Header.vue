@@ -37,12 +37,24 @@
         >
           Inicio
         </router-link>
-        <!-- <a href="#responsive-header" class="block py-2 md:inline-block md:mt-0 text-gray-800 hover:text-gray-700 mr-4">
-          About Us
-        </a>
-        <a href="#responsive-header" class="block py-2 md:inline-block md:mt-0 text-gray-800 hover:text-gray-700">
-          Blog
-        </a> -->
+        <router-link
+          to="/"
+          class="block py-2 md:inline-block md:mt-0 text-gray-800 hover:text-gray-700 mr-4"
+        >
+          Comunidades
+        </router-link>
+        <router-link
+          to="/"
+          class="block py-2 md:inline-block md:mt-0 text-gray-800 hover:text-gray-700 mr-4"
+        >
+          Talleres
+        </router-link>
+        <router-link
+          to="/"
+          class="block py-2 md:inline-block md:mt-0 text-gray-800 hover:text-gray-700 mr-4"
+        >
+          Creadores de contenido
+        </router-link>
       </div>
       <div v-if="isLoggedIn" class="relative">
         <div class="flex items-center">
@@ -69,7 +81,7 @@
           </div>
         </div>
         <div
-          class="bg-white md:w-40 md:absolute md:right-0 mt-3 md:shadow-md md:rounded-md border-t border-gray-400 md:border-none"
+          class="bg-white md:w-40 md:absolute md:right-0 md:shadow-md md:rounded-md border-t border-gray-400 md:border-none"
           :class="{ 'md:hidden': !responsiveDropdown }"
         >
           <h3

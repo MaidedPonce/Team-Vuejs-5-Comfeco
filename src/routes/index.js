@@ -1,87 +1,101 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
 
-import { auth } from '../config/firebase'
-import Home from '../views/Home'
-import Login from '../views/auth/Login'
-import SignUp from '../views/auth/SignUp'
-import Forgot from '../views/auth/Forgot'
-import Terms from '../views/Terms'
-import Politics from '../views/Politics'
-import Private from '../views/auth/Private'
-import Edit from '../views/private/profile/Edit'
+import { auth } from '../config/firebase';
+import Home from '../views/Home';
+import Login from '../views/auth/Login';
+import SignUp from '../views/auth/SignUp';
+import Forgot from '../views/auth/Forgot';
+import Terms from '../views/Terms';
+import Politics from '../views/Politics';
+import Dashboard from '../views/private/Dashboard';
+import Edit from '../views/private/profile/Edit';
+import Badges from '../views/private/profile/Badges';
+import MyProfile from '../views/private/profile/MyProfile';
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
     path: '*',
-    redirect: '/'
+    redirect: '/',
   },
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'home',
+    component: Home,
   },
   {
     path: '/login',
-    name: 'Login',
-    component: Login
+    name: 'login',
+    component: Login,
   },
   {
     path: '/register',
-    name: 'SignUp',
-    component: SignUp
+    name: 'register',
+    component: SignUp,
   },
   {
     path: '/forgot-password',
-    name: 'ForgotPassword',
-    component: Forgot
+    name: 'forgot',
+    component: Forgot,
   },
   {
     path: '/terminos-y-condiciones',
-    name: 'Terms',
-    component: Terms
+    name: 'terms',
+    component: Terms,
   },
   {
     path: '/politicas-de-privacidad',
-    name: 'Politics',
-    component: Politics
+    name: 'politics',
+    component: Politics,
   },
   {
     path: '/dashboard',
-    name: 'Private',
-    component: Private,
+    name: 'dashboard',
+    component: Dashboard,
     meta: {
-      requiresAuth: true
-    }
+      requiresAuth: true,
+    },
+    children: [
+      {
+        path: '',
+        name: 'my-profile',
+        component: MyProfile,
+      },
+      {
+        path: 'insignias',
+        name: 'badges',
+        component: Badges,
+      },
+    ],
   },
   {
     path: '/edit',
-    name: 'Edit',
+    name: 'edit',
     component: Edit,
     meta: {
-      requiresAuth: true
-    }
-  }
-]
+      requiresAuth: true,
+    },
+  },
+];
 
 const router = new VueRouter({
   mode: 'history',
-  routes
-})
+  routes,
+});
 
 router.beforeEach((to, from, next) => {
-  const currentUser = auth.currentUser
-  const requirestAuth = to.matched.some((record) => record.meta.requiresAuth)
+  const currentUser = auth.currentUser;
+  const requirestAuth = to.matched.some((record) => record.meta.requiresAuth);
 
   if (requirestAuth && !currentUser) {
-    next('login')
+    next('login');
   } else if (!requirestAuth && currentUser) {
-    next('dashboard')
+    next('dashboard');
   } else {
-    next()
+    next();
   }
-})
+});
 
-export default router
+export default router;
