@@ -110,7 +110,7 @@
           <router-link
             to="/edit"
             class="text-sm block md:px-2 py-2 hover:text-gray-600"
-            >Edit Profile</router-link
+            >Editar Perfil</router-link
           >
           <a href="#" class="text-sm block md:px-2 py-2 hover:text-gray-600"
             >Support</a

@@ -1,5 +1,5 @@
 <template>
-  <section class="w-10/12 md:w-8/12 lg:w-2/5 m-auto space-y-4">
+  <section class="flex-grow py-16 w-10/12 md:w-8/12 lg:w-2/5 m-auto space-y-4">
     <h3 class="text-2xl text-center font-semibold my-2">Editar Perfil</h3>
     <figure
       class="w-32 h-32 m-auto relative rounded-full overflow-hidden border-4 border-purple-500"
@@ -12,14 +12,15 @@
       </div>
     </figure>
 
-    <div class="space-y-4">
+    <div class="space-y-6">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-y-4 md:gap-x-4">
         <div class="space-y-1">
           <label for="" class="text-sm text-gray-700 font-semibold block"
             >Nick</label
           >
           <input
-            v-model="nickname"
+            v-model="user.nickname"
+            :disabled="isLoading"
             type="text"
             class="w-full text-gray-700 border border-purple-700 px-2 py-1 rounded-md"
           />
@@ -29,7 +30,8 @@
             >Correo Electronico</label
           >
           <input
-            v-model="email"
+            v-model="user.email"
+            :disabled="isLoading"
             type="text"
             class="w-full text-gray-700 border border-purple-700 px-2 py-1 rounded-md"
           />
@@ -41,7 +43,8 @@
             >Genero</label
           >
           <input
-            v-model="info.genero"
+            v-model="user.gender"
+            :disabled="isLoading"
             type="text"
             class="w-full text-gray-700 border border-purple-700 px-2 py-1 rounded-md"
           />
@@ -51,7 +54,8 @@
             >Fecha de nacimiento</label
           >
           <input
-            v-model="info.fecha_nacimiento"
+            v-model="user.birth"
+            :disabled="isLoading"
             type="text"
             class="w-full text-gray-700 border border-purple-700 px-2 py-1 rounded-md"
           />
@@ -61,7 +65,8 @@
             >Pais</label
           >
           <input
-            v-model="info.pais"
+            v-model="user.country"
+            :disabled="isLoading"
             type="text"
             class="w-full text-gray-700 border border-purple-700 px-2 py-1 rounded-md"
           />
@@ -73,7 +78,8 @@
             >Contrasena</label
           >
           <input
-            v-model="password"
+            v-model="user.password"
+            :disabled="isLoading"
             type="text"
             class="w-full text-gray-700 border border-purple-700 px-2 py-1 rounded-md"
           />
@@ -83,6 +89,7 @@
             >Confirmar Contrasena</label
           >
           <input
+            :disabled="isLoading"
             type="text"
             class="w-full text-gray-700 border border-purple-700 px-2 py-1 rounded-md"
           />
@@ -94,7 +101,8 @@
             >facebook.com/</label
           >
           <input
-            v-model="info.facebook"
+            v-model="user.facebook"
+            :disabled="isLoading"
             type="text"
             class="w-full text-gray-700 border border-purple-700 px-2 py-1 rounded-md"
           />
@@ -104,7 +112,8 @@
             >github.com/</label
           >
           <input
-            v-model="info.github"
+            v-model="user.github"
+            :disabled="isLoading"
             type="text"
             class="w-full text-gray-700 border border-purple-700 px-2 py-1 rounded-md"
           />
@@ -114,7 +123,8 @@
             >linkedin.com/in/</label
           >
           <input
-            v-model="info.linkedin"
+            v-model="user.linkedin"
+            :disabled="isLoading"
             type="text"
             class="w-full text-gray-700 border border-purple-700 px-2 py-1 rounded-md"
           />
@@ -124,106 +134,107 @@
             >twitter.com/</label
           >
           <input
-            v-model="info.twitter"
+            v-model="user.twitter"
+            :disabled="isLoading"
             type="text"
             class="w-full text-gray-700 border border-purple-700 px-2 py-1 rounded-md"
           />
         </div>
       </div>
       <div class="space-y-1">
-        <label for="" class="text-sm text-gray-700 font-semibold block"
+        <label class="text-sm text-gray-700 font-semibold block"
           >Biografia</label
         >
         <textarea
-          v-model="info.biografia"
-          class="w-full h-24 border resize-text-gray-700 none border-purple-700 p-1 rounded-md"
+          v-model="user.biography"
+          :disabled="isLoading"
+          class="w-full h-36 border resize-text-gray-700 none border-purple-700 p-1 px-2 rounded-md"
         ></textarea>
       </div>
       <div>
         <button
-          @click="guardar"
+          @click="updateProfile"
           class="w-full text-gray-300 py-2 rounded-lg bg-purple-500"
-        >
-          Guardar Cambios
-        </button>
+          :disabled="isLoading"
+          v-text="isLoading ? 'Actualizando' : 'Guardar Cambios'"
+        ></button>
       </div>
     </div>
   </section>
 </template>
 
 <script>
-import { auth, database } from '../../../config/firebase';
+import { auth, db } from '../../../config/firebase';
 
 export default {
   name: 'Edit',
-
   data() {
     return {
-      nickname: '',
-      email: '',
-      password: '',
+      isLoading: false,
+      user: {
+        uid: '',
+        nickname: '',
+        email: '',
+        password: '',
 
-      info: {
-        genero: '',
-        fecha_nacimiento: '',
-        pais: '',
+        gender: '',
+        birth: '',
+        country: '',
         facebook: '',
         github: '',
         linkedin: '',
         twitter: '',
-        biografia: '',
+        biography: '',
       },
     };
   },
 
   mounted() {
-    let user = auth.currentUser;
-    this.nickname = user.displayName;
-    this.email = user.email;
-
-    database
-      .ref('/users/' + user.uid)
-      .once('value')
-      .then((snapshot) => {
-        this.info.genero = (snapshot.val() && snapshot.val().genero) || '';
-        this.info.fecha_nacimiento =
-          (snapshot.val() && snapshot.val().fecha_nacimiento) || '';
-        this.info.pais = (snapshot.val() && snapshot.val().pais) || '';
-        this.info.facebook = (snapshot.val() && snapshot.val().facebook) || '';
-        this.info.github = (snapshot.val() && snapshot.val().github) || '';
-        this.info.linkedin = (snapshot.val() && snapshot.val().linkedin) || '';
-        this.info.twitter = (snapshot.val() && snapshot.val().twitter) || '';
-        this.info.biografia =
-          (snapshot.val() && snapshot.val().biografia) || '';
-      });
+    this.getCurrentUserData();
   },
 
   methods: {
-    guardar() {
-      let usuario_activo = auth.currentUser;
+    getCurrentUserData: async function() {
+      const authUser = auth.currentUser;
+      this.user.uid = authUser.uid;
+      this.user.nickname = authUser.displayName;
+      this.user.email = authUser.email;
 
-      let updateProfile = usuario_activo.updateProfile({
-        displayName: this.nickname,
-      });
+      const document = await db
+        .collection('users')
+        .doc(this.user.uid)
+        .get();
 
-      let updateEmail = usuario_activo.updateEmail(this.email);
-      //let updatePassword = usuario_activo.updatePassword(this.password)
-      let updateInfo = database
-        .ref('users/' + usuario_activo.uid)
-        .set(this.info);
+      const user = document.data();
 
-      Promise.all([
-        updateProfile,
-        updateEmail,
-        // updatePassword,
-        updateInfo,
-      ])
-        .then(() => {
-          alert('Se ha actualizado el perfil');
-        })
-        .catch(() => {
-          alert('Ingrese password');
-        });
+      this.user.gender = user.gender;
+      this.user.birth = user.birth;
+      this.user.country = user.country;
+      this.user.facebook = user.facebook;
+      this.user.github = user.github;
+      this.user.linkedin = user.linkedin;
+      this.user.twitter = user.twitter;
+      this.user.biography = user.biography;
+    },
+    updateProfile: async function() {
+      this.isLoading = true;
+      const user = {
+        gender: this.user.gender,
+        birth: this.user.birth,
+        country: this.user.country,
+        biography: this.user.biography,
+        facebook: this.user.facebook,
+        twitter: this.user.twitter,
+        linkedin: this.user.linkedin,
+        github: this.user.github,
+      };
+
+      await db
+        .collection('users')
+        .doc(this.user.uid)
+        .set(user);
+
+      this.isLoading = false;
     },
   },
 };
