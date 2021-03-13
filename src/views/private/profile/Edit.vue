@@ -140,7 +140,10 @@
         ></textarea>
       </div>
       <div>
-        <button @click="guardar" class="w-full text-gray-300 py-2 rounded-lg bg-purple-500">
+        <button
+          @click="guardar"
+          class="w-full text-gray-300 py-2 rounded-lg bg-purple-500"
+        >
           Guardar Cambios
         </button>
       </div>
@@ -149,73 +152,78 @@
 </template>
 
 <script>
-import { auth, database} from '../../../config/firebase';
-
+import { auth, database } from '../../../config/firebase';
 
 export default {
   name: 'Edit',
 
   data() {
     return {
-      nickname: "",
-      email: "",
-      password: "",
+      nickname: '',
+      email: '',
+      password: '',
 
       info: {
-        genero: "",
-        fecha_nacimiento: "",
-        pais: "",
-        facebook: "",
-        github: "",
-        linkedin: "",
-        twitter: "",
-        biografia: "",
+        genero: '',
+        fecha_nacimiento: '',
+        pais: '',
+        facebook: '',
+        github: '',
+        linkedin: '',
+        twitter: '',
+        biografia: '',
       },
     };
   },
 
-  mounted(){
+  mounted() {
     let user = auth.currentUser;
     this.nickname = user.displayName;
     this.email = user.email;
 
-    database.ref('/users/' + user.uid).once('value').then((snapshot) => {
-      this.info.genero = (snapshot.val() && snapshot.val().genero) || ""
-      this.info.fecha_nacimiento = (snapshot.val() && snapshot.val().fecha_nacimiento) || ""
-      this.info.pais = (snapshot.val() && snapshot.val().pais) || ""
-      this.info.facebook = (snapshot.val() && snapshot.val().facebook) || ""
-      this.info.github = (snapshot.val() && snapshot.val().github) || ""
-      this.info.linkedin = (snapshot.val() && snapshot.val().linkedin) || ""
-      this.info.twitter = (snapshot.val() && snapshot.val().twitter) || ""
-      this.info.biografia = (snapshot.val() && snapshot.val().biografia) || ""
-    })
-    
+    database
+      .ref('/users/' + user.uid)
+      .once('value')
+      .then((snapshot) => {
+        this.info.genero = (snapshot.val() && snapshot.val().genero) || '';
+        this.info.fecha_nacimiento =
+          (snapshot.val() && snapshot.val().fecha_nacimiento) || '';
+        this.info.pais = (snapshot.val() && snapshot.val().pais) || '';
+        this.info.facebook = (snapshot.val() && snapshot.val().facebook) || '';
+        this.info.github = (snapshot.val() && snapshot.val().github) || '';
+        this.info.linkedin = (snapshot.val() && snapshot.val().linkedin) || '';
+        this.info.twitter = (snapshot.val() && snapshot.val().twitter) || '';
+        this.info.biografia =
+          (snapshot.val() && snapshot.val().biografia) || '';
+      });
   },
 
   methods: {
-
-    guardar(){
+    guardar() {
       let usuario_activo = auth.currentUser;
 
       let updateProfile = usuario_activo.updateProfile({
-        displayName: this.nickname
-      })
+        displayName: this.nickname,
+      });
 
-      let updateEmail = usuario_activo.updateEmail(this.email)
+      let updateEmail = usuario_activo.updateEmail(this.email);
       //let updatePassword = usuario_activo.updatePassword(this.password)
-      let updateInfo = database.ref('users/' + usuario_activo.uid).set(this.info)
+      let updateInfo = database
+        .ref('users/' + usuario_activo.uid)
+        .set(this.info);
 
-      Promise.all([updateProfile, 
-                  updateEmail,
-                 // updatePassword,
-                  updateInfo])
-              .then(() =>{
-                alert("Se ha actualizado el perfil")
-              })
-              .catch(() =>{
-                alert("Ingrese password")
-              });
-
+      Promise.all([
+        updateProfile,
+        updateEmail,
+        // updatePassword,
+        updateInfo,
+      ])
+        .then(() => {
+          alert('Se ha actualizado el perfil');
+        })
+        .catch(() => {
+          alert('Ingrese password');
+        });
     },
   },
 };

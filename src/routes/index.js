@@ -22,37 +22,37 @@ const routes = [
   },
   {
     path: '/',
-    name: 'Home',
+    name: 'home',
     component: Home,
   },
   {
     path: '/login',
-    name: 'Login',
+    name: 'login',
     component: Login,
   },
   {
     path: '/register',
-    name: 'SignUp',
+    name: 'register',
     component: SignUp,
   },
   {
     path: '/forgot-password',
-    name: 'ForgotPassword',
+    name: 'forgot',
     component: Forgot,
   },
   {
     path: '/terminos-y-condiciones',
-    name: 'Terms',
+    name: 'terms',
     component: Terms,
   },
   {
     path: '/politicas-de-privacidad',
-    name: 'Politics',
+    name: 'politics',
     component: Politics,
   },
   {
     path: '/dashboard',
-    name: 'Dashboard',
+    name: 'dashboard',
     component: Dashboard,
     meta: {
       requiresAuth: true,
@@ -60,17 +60,19 @@ const routes = [
     children: [
       {
         path: '',
+        name: 'my-profile',
         component: MyProfile,
       },
       {
         path: 'insignias',
+        name: 'badges',
         component: Badges,
       },
     ],
   },
   {
     path: '/edit',
-    name: 'Edit',
+    name: 'edit',
     component: Edit,
     meta: {
       requiresAuth: true,

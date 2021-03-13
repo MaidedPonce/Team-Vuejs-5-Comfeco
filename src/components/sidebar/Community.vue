@@ -7,9 +7,11 @@
       <h4 class="text-lg font-semibold leading-none">
         Comunidad de Programadores
       </h4>
-      <a href="#" class="text-sm text-right text-blue-500 font-semibold"
-        >Unirme</a
-      >
+      <div class="text-right">
+        <a href="#" class="text-sm text-blue-500 font-semibold">
+          Unirme
+        </a>
+      </div>
     </div>
   </div>
 </template>

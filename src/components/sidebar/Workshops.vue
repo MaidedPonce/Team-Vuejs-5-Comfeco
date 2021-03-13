@@ -5,9 +5,7 @@
       <a href="#" class="text-blue-500 font-semibold">Ver mas</a>
     </div>
     <select
-      class="text-gray-600 border border-gray-500 rounded-md w-full p-3"
-      name=""
-      id=""
+      class="text-gray-600 border border-gray-500 focus:border-purple-400 rounded-md outline-none w-full p-3"
     >
       <option value="">Talleres por areas de conocimiento</option>
       <option value="">VueJs</option>
