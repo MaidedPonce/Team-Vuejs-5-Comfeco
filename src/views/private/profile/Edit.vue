@@ -56,7 +56,7 @@
           <input
             v-model="user.birth"
             :disabled="isLoading"
-            type="text"
+            type="date"
             class="w-full text-gray-700 border border-purple-700 px-2 py-1 rounded-md"
           />
         </div>
@@ -76,12 +76,31 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-y-4 md:gap-x-4">
         <div class="space-y-1">
           <label for="" class="text-sm text-gray-700 font-semibold block"
+            >Area de conocimiento</label
+          >
+
+          <select v-model="user.area_conocimiento" class="w-full text-gray-700 border border-purple-700 px-2 py-1 rounded-md">
+            <option disabled value="">Seleccione un elemento</option>
+            <option>frontend</option>
+            <option>backend</option>
+            <option>DevOps</option>
+            <option>Video Game Developers</option>
+            <option>Database Developer</option>
+            <option>Cloud Computing</option>
+
+          </select>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-y-4 md:gap-x-4">
+        <div class="space-y-1">
+          <label for="" class="text-sm text-gray-700 font-semibold block"
             >Contraseña</label
           >
           <input
             v-model="user.old_password"
             :disabled="isLoading"
-            type="text"
+            type="password"
             class="w-full text-gray-700 border border-purple-700 px-2 py-1 rounded-md"
           />
         </div>
@@ -95,7 +114,7 @@
           <input
             v-model="user.password"
             :disabled="isLoading"
-            type="text"
+            type="password"
             class="w-full text-gray-700 border border-purple-700 px-2 py-1 rounded-md"
           />
         </div>
@@ -105,7 +124,7 @@
           >
           <input
             :disabled="isLoading"
-            type="text"
+            type="password"
             class="w-full text-gray-700 border border-purple-700 px-2 py-1 rounded-md"
           />
         </div>
@@ -200,7 +219,7 @@ export default {
         linkedin: '',
         twitter: '',
         biography: '',
-
+        area_conocimiento: '',
         old_email: '',
         old_password: ''
       },
@@ -234,6 +253,7 @@ export default {
       this.user.linkedin = user.linkedin;
       this.user.twitter = user.twitter;
       this.user.biography = user.biography;
+      this.user.area_conocimiento = user.area_conocimiento;
     },
 
     updateProfile: async function() {
@@ -249,6 +269,7 @@ export default {
         twitter: this.user.twitter,
         linkedin: this.user.linkedin,
         github: this.user.github,
+        area_conocimiento: this.user.area_conocimiento
       };
 
       await db
