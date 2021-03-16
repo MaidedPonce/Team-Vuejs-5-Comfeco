@@ -72,10 +72,25 @@
           />
         </div>
       </div>
+
       <div class="grid grid-cols-1 md:grid-cols-2 gap-y-4 md:gap-x-4">
         <div class="space-y-1">
           <label for="" class="text-sm text-gray-700 font-semibold block"
-            >Contrasena</label
+            >Contraseña</label
+          >
+          <input
+            v-model="user.old_password"
+            :disabled="isLoading"
+            type="text"
+            class="w-full text-gray-700 border border-purple-700 px-2 py-1 rounded-md"
+          />
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-y-4 md:gap-x-4">
+        <div class="space-y-1">
+          <label for="" class="text-sm text-gray-700 font-semibold block"
+            >Nueva Contraseña</label
           >
           <input
             v-model="user.password"
@@ -153,7 +168,7 @@
       </div>
       <div>
         <button
-          @click="updateProfile"
+          @click="reauthenticate"
           class="w-full text-gray-300 py-2 rounded-lg bg-purple-500"
           :disabled="isLoading"
           v-text="isLoading ? 'Actualizando' : 'Guardar Cambios'"
@@ -164,7 +179,7 @@
 </template>
 
 <script>
-import { auth, db } from '../../../config/firebase';
+import { auth, db, emailProvider } from '../../../config/firebase';
 
 export default {
   name: 'Edit',
@@ -185,6 +200,9 @@ export default {
         linkedin: '',
         twitter: '',
         biography: '',
+
+        old_email: '',
+        old_password: ''
       },
     };
   },
@@ -199,6 +217,7 @@ export default {
       this.user.uid = authUser.uid;
       this.user.nickname = authUser.displayName;
       this.user.email = authUser.email;
+      this.user.old_email = authUser.email;
 
       const document = await db
         .collection('users')
@@ -216,8 +235,11 @@ export default {
       this.user.twitter = user.twitter;
       this.user.biography = user.biography;
     },
+
     updateProfile: async function() {
+      const authUser = auth.currentUser;
       this.isLoading = true;
+
       const user = {
         gender: this.user.gender,
         birth: this.user.birth,
@@ -234,8 +256,36 @@ export default {
         .doc(this.user.uid)
         .set(user);
 
+      await authUser.updateProfile({
+        displayName: this.user.nickname
+      });
+
+      if(this.user.email !== this.user.old_email)
+        await authUser.updateEmail(this.user.email)
+
+      if(this.user.password !== '')
+        await authUser.updatePassword(this.user.password)
+
       this.isLoading = false;
+      this.user.old_email = this.user.email
+      this.user.old_password = ''
+      this.user.password = ''
     },
+
+    reauthenticate: async function(){
+      const credential = emailProvider.credential(this.user.old_email, this.user.old_password);
+
+      try {
+        await auth.currentUser.reauthenticateWithCredential(credential)
+        this.updateProfile()
+      } catch(e){
+        alert("Inserte la contrasena")
+      }
+    }
+
+
   },
 };
 </script>
+
+
