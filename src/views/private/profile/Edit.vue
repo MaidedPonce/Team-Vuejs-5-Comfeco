@@ -19,7 +19,7 @@
             >Nick</label
           >
           <input
-            v-model="user.nickname"
+            v-model="user.primary_info.nickname"
             :disabled="isLoading"
             type="text"
             class="w-full text-gray-700 border border-purple-700 px-2 py-1 rounded-md"
@@ -30,7 +30,7 @@
             >Correo Electronico</label
           >
           <input
-            v-model="user.email"
+            v-model="user.primary_info.email"
             :disabled="isLoading"
             type="text"
             class="w-full text-gray-700 border border-purple-700 px-2 py-1 rounded-md"
@@ -43,7 +43,7 @@
             >Genero</label
           >
           <input
-            v-model="user.gender"
+            v-model="user.secondary_info.gender"
             :disabled="isLoading"
             type="text"
             class="w-full text-gray-700 border border-purple-700 px-2 py-1 rounded-md"
@@ -54,7 +54,7 @@
             >Fecha de nacimiento</label
           >
           <input
-            v-model="user.birth"
+            v-model="user.secondary_info.birth"
             :disabled="isLoading"
             type="date"
             class="w-full text-gray-700 border border-purple-700 px-2 py-1 rounded-md"
@@ -65,7 +65,7 @@
             >Pais</label
           >
           <input
-            v-model="user.country"
+            v-model="user.secondary_info.country"
             :disabled="isLoading"
             type="text"
             class="w-full text-gray-700 border border-purple-700 px-2 py-1 rounded-md"
@@ -79,7 +79,7 @@
             >Area de conocimiento</label
           >
 
-          <select v-model="user.area_conocimiento" class="w-full text-gray-700 border border-purple-700 px-2 py-1 rounded-md">
+          <select v-model="user.secondary_info.knowledge_area" class="w-full text-gray-700 border border-purple-700 px-2 py-1 rounded-md">
             <option disabled value="">Seleccione un elemento</option>
             <option>frontend</option>
             <option>backend</option>
@@ -95,15 +95,58 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-y-4 md:gap-x-4">
         <div class="space-y-1">
           <label for="" class="text-sm text-gray-700 font-semibold block"
-            >Contraseña</label
+            >facebook.com/</label
           >
           <input
-            v-model="user.old_password"
+            v-model="user.secondary_info.facebook"
             :disabled="isLoading"
-            type="password"
+            type="text"
             class="w-full text-gray-700 border border-purple-700 px-2 py-1 rounded-md"
           />
         </div>
+        <div class="space-y-1">
+          <label for="" class="text-sm text-gray-700 font-semibold block"
+            >github.com/</label
+          >
+          <input
+            v-model="user.secondary_info.github"
+            :disabled="isLoading"
+            type="text"
+            class="w-full text-gray-700 border border-purple-700 px-2 py-1 rounded-md"
+          />
+        </div>
+        <div class="space-y-1">
+          <label for="" class="text-sm text-gray-700 font-semibold block"
+            >linkedin.com/in/</label
+          >
+          <input
+            v-model="user.secondary_info.linkedin"
+            :disabled="isLoading"
+            type="text"
+            class="w-full text-gray-700 border border-purple-700 px-2 py-1 rounded-md"
+          />
+        </div>
+        <div class="space-y-1">
+          <label for="" class="text-sm text-gray-700 font-semibold block"
+            >twitter.com/</label
+          >
+          <input
+            v-model="user.secondary_info.twitter"
+            :disabled="isLoading"
+            type="text"
+            class="w-full text-gray-700 border border-purple-700 px-2 py-1 rounded-md"
+          />
+        </div>
+      </div>
+      <div class="space-y-1">
+        <label class="text-sm text-gray-700 font-semibold block"
+          >Biografia</label
+        >
+        <textarea
+          v-model="user.secondary_info.biography"
+          :disabled="isLoading"
+          class="w-full h-36 border resize-text-gray-700 none border-purple-700 p-1 px-2 rounded-md"
+        ></textarea>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-y-4 md:gap-x-4">
@@ -129,62 +172,21 @@
           />
         </div>
       </div>
+
       <div class="grid grid-cols-1 md:grid-cols-2 gap-y-4 md:gap-x-4">
         <div class="space-y-1">
           <label for="" class="text-sm text-gray-700 font-semibold block"
-            >facebook.com/</label
+            >Contraseña</label
           >
           <input
-            v-model="user.facebook"
+            v-model="user.old_password"
             :disabled="isLoading"
-            type="text"
-            class="w-full text-gray-700 border border-purple-700 px-2 py-1 rounded-md"
-          />
-        </div>
-        <div class="space-y-1">
-          <label for="" class="text-sm text-gray-700 font-semibold block"
-            >github.com/</label
-          >
-          <input
-            v-model="user.github"
-            :disabled="isLoading"
-            type="text"
-            class="w-full text-gray-700 border border-purple-700 px-2 py-1 rounded-md"
-          />
-        </div>
-        <div class="space-y-1">
-          <label for="" class="text-sm text-gray-700 font-semibold block"
-            >linkedin.com/in/</label
-          >
-          <input
-            v-model="user.linkedin"
-            :disabled="isLoading"
-            type="text"
-            class="w-full text-gray-700 border border-purple-700 px-2 py-1 rounded-md"
-          />
-        </div>
-        <div class="space-y-1">
-          <label for="" class="text-sm text-gray-700 font-semibold block"
-            >twitter.com/</label
-          >
-          <input
-            v-model="user.twitter"
-            :disabled="isLoading"
-            type="text"
+            type="password"
             class="w-full text-gray-700 border border-purple-700 px-2 py-1 rounded-md"
           />
         </div>
       </div>
-      <div class="space-y-1">
-        <label class="text-sm text-gray-700 font-semibold block"
-          >Biografia</label
-        >
-        <textarea
-          v-model="user.biography"
-          :disabled="isLoading"
-          class="w-full h-36 border resize-text-gray-700 none border-purple-700 p-1 px-2 rounded-md"
-        ></textarea>
-      </div>
+
       <div>
         <button
           @click="reauthenticate"
@@ -206,22 +208,27 @@ export default {
     return {
       isLoading: false,
       user: {
-        uid: '',
-        nickname: '',
-        email: '',
-        password: '',
+        primary_info:{
+          uid: '',
+          nickname: '',
+          email: '',
+          password: '',
+        },
 
-        gender: '',
-        birth: '',
-        country: '',
-        facebook: '',
-        github: '',
-        linkedin: '',
-        twitter: '',
-        biography: '',
-        area_conocimiento: '',
+        secondary_info:{
+          gender: '',
+          birth: '',
+          country: '',
+          facebook: '',
+          github: '',
+          linkedin: '',
+          twitter: '',
+          biography: '',
+          knowledge_area: '',
+        },
+
         old_email: '',
-        old_password: ''
+        old_password: '',
       },
     };
   },
@@ -233,64 +240,71 @@ export default {
   methods: {
     getCurrentUserData: async function() {
       const authUser = auth.currentUser;
-      this.user.uid = authUser.uid;
-      this.user.nickname = authUser.displayName;
-      this.user.email = authUser.email;
+      this.user.primary_info.uid = authUser.uid;
+      this.user.primary_info.nickname = authUser.displayName;
+      this.user.primary_info.email = authUser.email;
       this.user.old_email = authUser.email;
 
       const document = await db
         .collection('users')
-        .doc(this.user.uid)
+        .doc(this.user.primary_info.uid)
         .get();
 
       const user = document.data();
 
-      this.user.gender = user.gender;
-      this.user.birth = user.birth;
-      this.user.country = user.country;
-      this.user.facebook = user.facebook;
-      this.user.github = user.github;
-      this.user.linkedin = user.linkedin;
-      this.user.twitter = user.twitter;
-      this.user.biography = user.biography;
-      this.user.area_conocimiento = user.area_conocimiento;
+      this.user.secondary_info.gender = user.gender;
+      this.user.secondary_info.birth = user.birth;
+      this.user.secondary_info.country = user.country;
+      this.user.secondary_info.facebook = user.facebook;
+      this.user.secondary_info.github = user.github;
+      this.user.secondary_info.linkedin = user.linkedin;
+      this.user.secondary_info.twitter = user.twitter;
+      this.user.secondary_info.biography = user.biography;
+      this.user.secondary_info.knowledge_area = user.knowledge_area;
     },
 
     updateProfile: async function() {
       const authUser = auth.currentUser;
       this.isLoading = true;
+      let aviableSociable = false;
+      let userInfo = db.collection.doc(this.user.primary_info.uid)
 
-      const user = {
-        gender: this.user.gender,
-        birth: this.user.birth,
-        country: this.user.country,
-        biography: this.user.biography,
-        facebook: this.user.facebook,
-        twitter: this.user.twitter,
-        linkedin: this.user.linkedin,
-        github: this.user.github,
-        area_conocimiento: this.user.area_conocimiento
-      };
-
-      await db
-        .collection('users')
-        .doc(this.user.uid)
-        .set(user);
+      await userInfo.set(this.user.secondary_info);
 
       await authUser.updateProfile({
-        displayName: this.user.nickname
+        displayName: this.user.primary_info.nickname
       });
 
-      if(this.user.email !== this.user.old_email)
-        await authUser.updateEmail(this.user.email)
+      if(this.user.primary_info.email !== this.user.old_email)
+        await authUser.updateEmail(this.user.primary_info.email)
 
-      if(this.user.password !== '')
-        await authUser.updatePassword(this.user.password)
+      if(this.user.primary_info.password !== '')
+        await authUser.updatePassword(this.user.primary_info.password)
+
+      if(this.updateBadge()){
+        aviableSociable = true;
+      }
+
+      let badges = db.collection('badges')
+        let snapshot = await badges.get()
+
+        snapshot.forEach(doc => {
+          let badge = doc.data();
+
+          if(badge.name === "Sociable"){
+            userInfo
+            .collection('badges')
+            .doc(doc.id).set({
+              aviable: aviableSociable
+            })
+          }
+        });
+
 
       this.isLoading = false;
-      this.user.old_email = this.user.email
+      this.user.old_email = this.user.primary_info.email
       this.user.old_password = ''
-      this.user.password = ''
+      this.user.primary_info.password = ''
     },
 
     reauthenticate: async function(){
@@ -302,11 +316,12 @@ export default {
       } catch(e){
         alert("Inserte la contrasena")
       }
-    }
+    },
 
+    updateBadge: function(){
+      return Object.entries(this.user.secondary_info).filter(function(val){ return val[1] === ''}).length === 0;
+    },
 
   },
 };
 </script>
-
-
