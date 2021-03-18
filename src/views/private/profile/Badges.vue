@@ -1,6 +1,13 @@
 <template>
   <section>
-    <p v-if="badges.sociable"> Insignia sociable obtenia </p>
+
+    <section v-if="badges.sociable.aviable">
+      <p> Insignia sociable obtenida </p>
+      <p> descripcion </p>
+      <p> {{badges.sociable.description}} </p>
+      <p> objetivo </p>
+      <p> {{badges.sociable.goal}} </p>
+    </section>
   </section>
 </template>
 
@@ -14,7 +21,11 @@ export default {
   data(){
     return{
       badges: {
-        sociable: false
+        sociable: {
+          aviable: false,
+          description: '',
+          goal: ''
+        }
       }
     }
   },
@@ -27,13 +38,25 @@ export default {
     checkBadgeSociable: async function(){
       const authUser = auth.currentUser;
 
-      const document = await db
+      const documentUser = await db
         .collection('users/' + authUser.uid + '/badges')
         .doc('Sociable')
         .get();
-        
-      let badgeSociable = document.data();
-      this.badges.sociable = badgeSociable.aviable;
+
+      let badgeSociable = documentUser.data()
+      this.badges.sociable.aviable = badgeSociable.aviable;
+
+      if(this.badges.sociable.aviable){
+        const documentBadge = await db
+        .collection('badges')
+        .doc('Sociable')
+        .get();
+
+        let badgeInfo = documentBadge.data()
+        this.badges.sociable.description = badgeInfo.description
+        this.badges.sociable.goal = badgeInfo.goal
+      }
+      
     }
   }
 };
