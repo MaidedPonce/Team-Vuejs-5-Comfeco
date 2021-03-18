@@ -267,7 +267,7 @@ export default {
       const authUser = auth.currentUser;
       this.isLoading = true;
       let aviableSociable = false;
-      let userInfo = db.collection.doc(this.user.primary_info.uid)
+      let userInfo = db.collection('users').doc(this.user.primary_info.uid)
 
       await userInfo.set(this.user.secondary_info);
 
@@ -285,22 +285,10 @@ export default {
         aviableSociable = true;
       }
 
-      let badges = db.collection('badges')
-        let snapshot = await badges.get()
-
-        snapshot.forEach(doc => {
-          let badge = doc.data();
-
-          if(badge.name === "Sociable"){
-            userInfo
-            .collection('badges')
-            .doc(doc.id).set({
-              aviable: aviableSociable
-            })
-          }
-        });
-
-
+      userInfo.collection('badges').doc('Sociable').set({
+        aviable: aviableSociable
+      })
+      
       this.isLoading = false;
       this.user.old_email = this.user.primary_info.email
       this.user.old_password = ''
