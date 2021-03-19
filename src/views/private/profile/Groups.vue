@@ -150,7 +150,7 @@ export default {
 
       await db.collection('users')
         .doc(authUser.uid)
-        .set({
+        .update({
           group: name
         });
 

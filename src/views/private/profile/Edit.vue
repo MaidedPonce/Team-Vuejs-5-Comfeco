@@ -271,7 +271,7 @@ export default {
 
       
 
-      await userInfo.set(this.user.secondary_info);
+      await userInfo.update(this.user.secondary_info);
 
       await authUser.updateProfile({
         displayName: this.user.primary_info.nickname

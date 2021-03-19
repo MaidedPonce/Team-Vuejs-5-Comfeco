@@ -1,3 +1,4 @@
+
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
@@ -91,6 +92,7 @@ const router = new VueRouter({
   routes,
 });
 
+/*
 router.beforeEach((to, from, next) => {
   const currentUser = auth.currentUser;
   const requirestAuth = to.matched.some((record) => record.meta.requiresAuth);
@@ -102,6 +104,17 @@ router.beforeEach((to, from, next) => {
   } else {
     next();
   }
+});
+*/
+
+router.beforeEach((to, from, next) => {
+  const requiresAuth = to.matched.some(x => x.meta.requiresAuth);
+  if(requiresAuth) {
+    auth.onAuthStateChanged( (user) => {
+      if (!user) next('/login')
+        else next();
+    })
+  } else next()
 });
 
 export default router;
