@@ -46,7 +46,7 @@
     <div class="container mx-auto">
       <div class="flex flex-wrap -mx-4">
       
-        <div class="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4"  v-for="(group, index) in groupsFilter" :key="index">
+        <div class="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4"  v-for="(group, index) in getGroupsFilter" :key="index">
           <div class="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden">
             <div class="relative pb-48 overflow-hidden">
               <img class="absolute inset-0 h-full w-full object-cover" src="../../../assets/images/card_group.jpg" alt="">
@@ -94,23 +94,24 @@ export default {
   },
 
   computed: {
-    groupsFilter(){
-      let groupsFilter = this.groups;
+    getGroupsFilter(){
+      return this.getGroupsFilterByName.filter(x => this.getGroupsFilterByLanguage.includes(x))
+    },
 
-      if(this.filterByLanguage !== ''){
-        groupsFilter = groupsFilter.filter((val) =>{
-          return val.language.toLowerCase() === this.filterByLanguage.toLowerCase()
-        })
-      }
+    getGroupsFilterByLanguage(){
+      if(this.filterByLanguage === '') return this.groups;
 
-      if(this.searchByName !== ''){
-        console.log(groupsFilter)
-        groupsFilter = groupsFilter.filter((val) =>{
-          return val.name.toLowerCase().includes(this.searchByName.toLowerCase())
-        })
-      }
+      return this.groups.filter((val) =>{
+        return val.language.toLowerCase() === this.filterByLanguage.toLowerCase()
+      })
+    },
 
-      return groupsFilter
+    getGroupsFilterByName(){
+      if(this.searchByName === '') return this.groups;
+
+      return this.groups.filter((val) =>{
+        return val.name.toLowerCase().includes(this.searchByName.toLowerCase())
+      })
     },
 
     getGroupName(){
