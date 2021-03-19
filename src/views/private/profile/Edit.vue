@@ -252,15 +252,15 @@ export default {
 
       const user = document.data();
 
-      this.user.secondary_info.gender = user.gender;
-      this.user.secondary_info.birth = user.birth;
-      this.user.secondary_info.country = user.country;
-      this.user.secondary_info.facebook = user.facebook;
-      this.user.secondary_info.github = user.github;
-      this.user.secondary_info.linkedin = user.linkedin;
-      this.user.secondary_info.twitter = user.twitter;
-      this.user.secondary_info.biography = user.biography;
-      this.user.secondary_info.knowledge_area = user.knowledge_area;
+      this.user.secondary_info.gender = user.gender === undefined ? '' : user.gender;
+      this.user.secondary_info.birth = user.birth === undefined ? '' : user.birth;
+      this.user.secondary_info.country = user.country === undefined ? '' : user.country;
+      this.user.secondary_info.facebook = user.facebook === undefined ? '' : user.facebook;
+      this.user.secondary_info.github = user.github === undefined ? '' : user.github;
+      this.user.secondary_info.linkedin = user.linkedin === undefined ? '' : user.linkedin;
+      this.user.secondary_info.twitter = user.twitter === undefined ? '' : user.twitter;
+      this.user.secondary_info.biography = user.biography === undefined ? '' : user.biography;
+      this.user.secondary_info.knowledge_area = user.knowledge_area === undefined ? '' : user.knowledge_area;
     },
 
     updateProfile: async function() {
@@ -268,6 +268,8 @@ export default {
       this.isLoading = true;
       let aviableSociable = false;
       let userInfo = db.collection('users').doc(this.user.primary_info.uid)
+
+      
 
       await userInfo.set(this.user.secondary_info);
 
@@ -288,6 +290,7 @@ export default {
       userInfo.collection('badges').doc('Sociable').set({
         aviable: aviableSociable
       })
+
       
       this.isLoading = false;
       this.user.old_email = this.user.primary_info.email
