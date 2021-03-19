@@ -46,8 +46,8 @@
       </svg>
       <h4 class="font-semibold">Insignias</h4>
     </router-link>
-    <a
-      href="#"
+    <router-link
+      to="/dashboard/grupos"
       class="flex bg-purple-300 py-4 justify-center rounded-md space-x-2 text-purple-800"
     >
       <svg
@@ -65,7 +65,7 @@
         ></path>
       </svg>
       <h4 class="font-semibold">Grupos</h4>
-    </a>
+    </router-link>
     <a
       href="#"
       class="flex bg-purple-300 py-4 justify-center rounded-md space-x-2 text-purple-800"
