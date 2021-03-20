@@ -8,7 +8,7 @@
       <figure class="w-20 h-20 m-auto">
         <img src="../../../assets/images/badges/social-media.svg" alt="" />
       </figure>
-      <h3 class="text-2xl font-bold">Sociable</h3>
+      <h3 class="text-2xl font-bold">{{getTitleBadgeSociable}}</h3>
       <div class="space-y-4">
         <h6 class="font-semibold">Descripcion</h6>
         <p class="text-sm text-gray-700">
@@ -122,6 +122,16 @@ export default {
 
   mounted(){
     this.checkBadgeSociable()
+  },
+
+  computed:{
+    getTitleBadgeSociable(){
+      if(this.badges.sociable.aviable){
+        return "Sociable obtenida"
+      }
+
+      return "Sociable"
+    }
   },
 
   methods: {
