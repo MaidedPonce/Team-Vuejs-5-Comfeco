@@ -111,10 +111,14 @@ router.beforeEach((to, from, next) => {
   const requiresAuth = to.matched.some(x => x.meta.requiresAuth);
   if(requiresAuth) {
     auth.onAuthStateChanged( (user) => {
-      if (!user) next('/login')
-        else next();
+      if (!user) 
+        next('/login')
+      else next();
     })
-  } else next()
+  } else if(to.name === 'login') 
+    next('/dashboard')
+
+  next()
 });
 
 export default router;
