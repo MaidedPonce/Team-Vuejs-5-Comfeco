@@ -92,33 +92,22 @@ const router = new VueRouter({
   routes,
 });
 
-/*
-router.beforeEach((to, from, next) => {
-  const currentUser = auth.currentUser;
-  const requirestAuth = to.matched.some((record) => record.meta.requiresAuth);
-
-  if (requirestAuth && !currentUser) {
-    next('login');
-  } else if (!requirestAuth && currentUser) {
-    next('dashboard');
-  } else {
-    next();
-  }
-});
-*/
-
 router.beforeEach((to, from, next) => {
   const requiresAuth = to.matched.some(x => x.meta.requiresAuth);
   if(requiresAuth) {
     auth.onAuthStateChanged( (user) => {
-      if (!user) 
-        next('/login')
-      else next();
+      if (!user) next('/login')
+      else next()
+      
     })
-  } else if(to.name === 'login') 
-    next('/dashboard')
+  } else if(to.name === 'login'){
+    auth.onAuthStateChanged( (user) => {
+      if (user) next('/dashboard')
+      else next()
+    })
+  } else
+    next()
 
-  next()
 });
 
 export default router;
