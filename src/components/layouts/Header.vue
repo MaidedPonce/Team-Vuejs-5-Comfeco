@@ -102,17 +102,20 @@
               >6</span
             >
           </a>
+
           <router-link
             to="/dashboard"
             class="text-sm block md:px-2 py-2 hover:text-gray-600"
+            @click.native="responsiveDropdown = false"
             >Dashboard</router-link
           >
           <router-link
             to="/edit"
             class="text-sm block md:px-2 py-2 hover:text-gray-600"
+            @click.native="responsiveDropdown = false"
             >Editar Perfil</router-link
           >
-          <a href="#" class="text-sm block md:px-2 py-2 hover:text-gray-600"
+          <a href="#" class="text-sm block md:px-2 py-2 hover:text-gray-600" @click="responsiveDropdown = false"
             >Support</a
           >
           <a
