@@ -61,7 +61,7 @@
           <div class="relative hidden md:block cursor-pointer mr-4">
             <img
               class="text-pink-500 w-7"
-              src="../../assets/bell.svg"
+              src="../../assets/images/bell.svg"
               alt="Notifications"
             />
             <span
