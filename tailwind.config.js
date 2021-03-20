@@ -1,7 +1,7 @@
-const colors = require('tailwindcss/colors')
+const colors = require('tailwindcss/colors');
 
 module.exports = {
-  purge: [],
+  purge: ['./src/**/*.html', './src/**/*.vue', './src/**/*.jsx'],
   darkMode: false, // or 'media' or 'class'
   theme: {
     colors: {
@@ -13,7 +13,7 @@ module.exports = {
         500: '#C4C4C4',
         600: '#777879',
         700: '#555555',
-        800: '#2E2E2E'
+        800: '#2E2E2E',
       },
       pink: {
         300: '#ECADF6',
@@ -21,7 +21,7 @@ module.exports = {
         500: '#D740DA',
         600: '#B824BB',
         700: '#8A178C',
-        800: '#69156A'
+        800: '#69156A',
       },
       purple: {
         300: '#D7B7FF',
@@ -29,7 +29,7 @@ module.exports = {
         500: '#9349DD',
         600: '#7535B6',
         700: '#521E87',
-        800: '#390F64'
+        800: '#390F64',
       },
       yellow: {
         300: '#FFE499',
@@ -37,22 +37,22 @@ module.exports = {
         500: '#FFCB38',
         600: '#FFC41F',
         700: '#F1B406',
-        800: '#D39C00'
+        800: '#D39C00',
       },
       blue: colors.blue,
       red: colors.red,
       green: colors.green,
       facebook: '#4867AA',
-      twitter: '#00A2F3'
+      twitter: '#00A2F3',
     },
     extend: {
-      backgroundImage: theme => ({
-        auth: "url('/src/assets/auth.jpg')"
-      })
-    }
+      backgroundImage: (theme) => ({
+        auth: "url('/src/assets/auth.jpg')",
+      }),
+    },
   },
   variants: {
-    extend: {}
+    extend: {},
   },
-  plugins: []
-}
+  plugins: [],
+};
