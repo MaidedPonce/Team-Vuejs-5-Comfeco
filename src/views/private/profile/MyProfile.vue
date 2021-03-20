@@ -1,6 +1,6 @@
 <template>
   <section
-    class="w-11/12 md:w-8/12 lg:w-11/12 flex-grow m-auto py-16 grid grid-cols-1 lg:grid-cols-5 gap-y-10 md:gap-4 lg:gap-x-12"
+    class="w-11/12 md:w-8/12 lg:w-11/12 m-auto pt-16 grid grid-cols-1 lg:grid-cols-5 gap-y-10 md:gap-4 lg:gap-x-12"
   >
     <div>
       <div class="relative text-center border border-purple-300">
@@ -76,7 +76,7 @@
           <figure class="w-12 h-12 md:w-24 md:h-24 rounded-full">
             <img
               class="drop-shadow"
-              src="../../../assets/images/badges/medal.svg"
+              src="../../../assets/images/badges/social-media.svg"
               alt="badge"
             />
           </figure>
@@ -90,7 +90,7 @@
           <figure class="w-12 h-12 md:w-24 md:h-24 rounded-full">
             <img
               class="drop-shadow"
-              src="../../../assets/images/badges/medal.svg"
+              src="../../../assets/images/badges/social-media.svg"
               alt="badge"
             />
           </figure>
