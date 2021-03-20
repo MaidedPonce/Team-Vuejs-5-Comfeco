@@ -4,7 +4,7 @@
     <figure
       class="w-32 h-32 m-auto relative rounded-full overflow-hidden border-4 border-purple-500"
     >
-      <img src="../../../assets/avatar.jpg" alt="Homero Simpson" />
+      <img :src="user.photo" :alt="user.name" />
       <div
         class="w-full text-center text-white absolute bottom-0 py-1.5 bg-purple-500"
       >

@@ -13,6 +13,7 @@ import Dashboard from '../views/private/Dashboard';
 import Edit from '../views/private/profile/Edit';
 import Badges from '../views/private/profile/Badges';
 import Groups from '../views/private/profile/Groups';
+import Events from '../views/private/profile/Events';
 import MyProfile from '../views/private/profile/MyProfile';
 
 Vue.use(VueRouter);
@@ -69,11 +70,15 @@ const routes = [
         name: 'badges',
         component: Badges,
       },
-
       {
         path: 'grupos',
         name: 'groups',
         component: Groups,
+      },
+      {
+        path: 'eventos',
+        name: 'events',
+        component: Events,
       },
     ],
   },

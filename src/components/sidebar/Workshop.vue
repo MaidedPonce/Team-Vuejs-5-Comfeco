@@ -1,7 +1,7 @@
 <template>
   <div class="flex py-3 space-x-2 border-t border-purple-500">
     <figure class="w-8 h-8 rounded-full overflow-hidden border">
-      <img src="../../assets/avatar.jpg" alt="avatar" />
+      <img src="../../assets/images/avatar.jpg" alt="avatar" />
     </figure>
     <div>
       <a href="#">
