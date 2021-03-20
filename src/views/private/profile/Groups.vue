@@ -1,11 +1,15 @@
 <template>
   <section
   class="w-11/12 md:w-8/12 lg:w-11/12 m-auto flex-grow py-16 grid grid-cols-1 lg:grid-cols-5 lg:gap-4 lg:gap-x-12">
-    <div class="p-4">
+    <div class="p-4 col-span-1">
       <section class="space-y-4">
         <div class="flex justify-between">
           <h3 class="text-xl font-semibold">{{getGroupName}}</h3>
-          <h3>Ir al grupo</h3>
+          <div class="text-right">
+        <a href="#" class="text-sm text-blue-500 font-semibold">
+          Ir al grupo
+        </a>
+      </div>
         </div>
       </section>
 
@@ -27,7 +31,6 @@
     </div>
 
     <div class="col-span-4">
-
         <div class="flex flex-wrap -mx-2 space-y-4 md:space-y-0">
           <div class="w-full px-2 md:w-1/2">
             <select class="w-full h-10 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline" v-model="filterByLanguage">
@@ -36,12 +39,19 @@
                 <option>Haskell</option>
                 <option>Typescript</option>
                 <option>PHP</option>
+                <option>Python</option>
+                <option>Java</option>
+                <option>Javascript</option>
+                <option>C#</option>
             </select>
           </div>
           <div class="w-full px-2 md:w-1/2">
-            <input class="w-full h-10 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline" placeholder="Buscar" type="text" v-model="searchByName"/>
+            <input class="w-full h-10 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline" placeholder="Buscar" type="text" 
+            v-model="searchByName"
+            v-on:keyup.enter="$event.target.blur()"/>
           </div>
-      </div>
+        </div>
+
 
     <div class="container mx-auto">
       <div class="flex flex-wrap -mx-4">
@@ -70,9 +80,7 @@
 </template>
 
 <script>
-
 import { auth, db } from '../../../config/firebase';
-import Communities from '../../../components/sidebar/Communities';
 
 export default {
   name: 'Badge',
