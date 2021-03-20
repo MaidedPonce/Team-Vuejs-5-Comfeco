@@ -4,7 +4,7 @@
     <figure
       class="w-32 h-32 m-auto relative rounded-full overflow-hidden border-4 border-purple-500"
     >
-      <img src="../../../assets/images/avatar.jpg" alt="Homero Simpson" />
+      <img :src="user.photo" :alt="user.name" />
       <div
         class="w-full text-center text-white absolute bottom-0 py-1.5 bg-purple-500"
       >
@@ -176,6 +176,7 @@ export default {
         nickname: '',
         email: '',
         password: '',
+        photho: '',
 
         gender: '',
         birth: '',
@@ -199,6 +200,7 @@ export default {
       this.user.uid = authUser.uid;
       this.user.nickname = authUser.displayName;
       this.user.email = authUser.email;
+      this.user.photo = authUser.photoURL;
 
       const document = await db
         .collection('users')
