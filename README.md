@@ -1,4 +1,9 @@
-# comfeco
+# Comfeco
+
+## Deploy sitio web
+```
+https://team-vuejs5-comfeco.firebaseapp.com/
+```
 
 ## Config firebase
 Copy and rename `.env.example` to `.env` and config firebase keys
